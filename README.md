@@ -1,2 +1,45 @@
 # survivorpy
-A Python package that provides an up-to-date mirror of the *Survivor* dataset from the R package `survivoR`.
+
+**survivorpy** is a Python package that provides an up-to-date mirror of the Survivor dataset from the R package [survivoR](https://github.com/doehm/survivoR). It enables easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality TV show *Survivor*—directly from Python, using familiar `pandas` dataframes.
+
+This package is designed to stay in sync with updates to the original R package, allowing Python users to benefit from ongoing enhancements and new data as seasons are added.
+
+## Installation
+
+Coming soon — the package will be installable via `pip`.
+
+```bash
+pip install survivorpy
+```
+
+## Usage
+
+```python
+import survivorpy as spy
+
+df_castaways = spy.load_castaways()
+df_votes = spy.load_vote_history()
+# etc.
+```
+
+More usage examples and full documentation will be added as the project develops.
+
+## Data Source and Attribution
+
+The data used in this package is sourced from the [`survivoR`](https://github.com/doehm/survivoR) R package by Daniel Oehm and contributors. The original package is licensed under the MIT License.
+
+We thank the `survivoR` team for making this rich dataset available to the public and for maintaining an up-to-date and comprehensive resource.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for full details.
+
+This package also redistributes data from the `survivoR` R package, which is licensed under the MIT License. The original license and attribution from `survivoR` are preserved in accordance with the terms of that license. For more information, see the [`survivoR` GitHub repository](https://github.com/doehm/survivoR).
+
+## Contributing
+
+Contributions are welcome! Please open an issue or pull request if you'd like to improve the package.
+
+## Disclaimer
+
+This package is not affiliated with or endorsed by CBS, the producers of *Survivor*, or the creators of the original dataset. It is intended for educational, analytical, and research purposes only...and for fun or course, it's also intended for fun!
