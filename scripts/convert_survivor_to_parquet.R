@@ -2,8 +2,8 @@ library(survivoR)
 library(arrow)
 
 # Output directories
-parquet_dir <- "../../data/"  # change as needed
-table_names_py <- "../../survivorpy/table_names.py"
+parquet_dir <- "../data/"  # change as needed
+table_names_py <- "../survivorpy/table_names.py"
 
 # Create output directory if it doesn't exist
 if (!dir.exists(parquet_dir)) {
