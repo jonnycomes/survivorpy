@@ -15,10 +15,10 @@ pip install survivorpy
 ## Usage
 
 ```python
-import survivorpy as spy
+import survivorpy as svr
 
-df_castaways = spy.load_castaways()
-df_votes = spy.load_vote_history()
+df_castaways = svr.castaways()
+df_episodes = svr.episodes()
 # etc.
 ```
 
