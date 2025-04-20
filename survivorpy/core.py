@@ -4,14 +4,10 @@ import requests
 import pandas as pd
 from io import BytesIO
 from pathlib import Path
+from .table_names import TABLE_NAMES
 
 
 _LOCAL_DATA_DIR = Path(__file__).parent.parent / "data"
-_VALID_TABLES = {
-    "castaways": "castaways.parquet",
-    "episodes": "episodes.parquet",
-    # Add more later...
-}
 
 
 def load(table: str, refresh: bool = False) -> pd.DataFrame:
@@ -28,8 +24,8 @@ def load(table: str, refresh: bool = False) -> pd.DataFrame:
     Raises:
         ValueError: If the provided table name is not recognized.
     """
-    if table not in _VALID_TABLES:
-        raise ValueError(f"Unknown table: '{table}'. Choose from: {list(_VALID_TABLES)}")
+    if table not in TABLE_NAMES:
+        raise ValueError(f"Unknown table: '{table}'. Choose from: {TABLE_NAMES}")
 
     local_path = os.path.join(_LOCAL_DATA_DIR, f"{table}.parquet")
     
