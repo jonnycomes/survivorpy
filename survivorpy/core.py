@@ -36,7 +36,7 @@ def load(table: str, refresh: bool = False) -> pd.DataFrame:
     # Fetch the data from the remote source
     try:
         s3 = boto3.client('s3')
-        s3_key = f"{table}.parquet"
+        s3_key = f"tables/{table}.parquet"
         response = s3.get_object(Bucket='survivorpy-data', Key=s3_key)
         
         # Read the data from the response
