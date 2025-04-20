@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "survivorpy"
+version = "0.1.0"
+description = "Python port of the R Survivor package"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Jonny Comes"}
+]
+dependencies = [
+    "pandas",
+    "pyarrow",
+]
+
+[tool.setuptools]
+packages = ["survivorpy"]
