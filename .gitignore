@@ -145,3 +145,7 @@ sandbox/
 
 # macOS Finder metadata files
 .DS_Store
+
+# Local cache for downloaded/generated metadata
+_cache/
+
