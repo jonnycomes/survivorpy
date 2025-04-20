@@ -14,11 +14,18 @@ pip install survivorpy
 
 ## Usage
 
+
+```python
+from survivorpy import castaways
+
+print(castaways.head())
+```
+
 ```python
 import survivorpy as svr
 
-df_castaways = svr.castaways()
-df_episodes = svr.episodes()
+df_castaways = svr.load("castaways")
+df_episodes = svr.load("episodes")
 # etc.
 ```
 
