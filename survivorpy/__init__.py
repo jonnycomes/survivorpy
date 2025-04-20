@@ -1,4 +1,5 @@
 from .core import load
+from .table_names import TABLE_NAMES
 
 def __getattr__(name):
     if name == "castaways":

@@ -6,7 +6,7 @@ from io import BytesIO
 from pathlib import Path
 
 
-_LOCAL_DATA_DIR = Path(__file__).parent.parent / "data" / "raw"
+_LOCAL_DATA_DIR = Path(__file__).parent.parent / "data"
 _VALID_TABLES = {
     "castaways": "castaways.parquet",
     "episodes": "episodes.parquet",
