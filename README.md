@@ -49,4 +49,5 @@ Contributions are welcome! Please open an issue or pull request if you'd like to
 
 ## Disclaimer
 
-This package is not affiliated with or endorsed by CBS, the producers of *Survivor*, or the creators of the original dataset. It is intended for educational, analytical, and research purposes only...and for fun or course, it's also intended for fun!
+This package is not affiliated with or endorsed by CBS, the producers of *Survivor*, or the creators of the original dataset. It is intended for educational, analytical, and research purposes — and definitely not just because it was fun to make.
+
