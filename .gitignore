@@ -173,5 +173,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Data files
+*.parquet
+
 # For playing around:
 sandbox/
