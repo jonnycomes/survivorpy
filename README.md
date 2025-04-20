@@ -1,4 +1,4 @@
-# survivorpy
+# SurvivorPy
 
 **survivorpy** is a Python package that provides an up-to-date mirror of the Survivor dataset from the R package [survivoR](https://github.com/doehm/survivoR). It enables easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality TV show *Survivor*—directly from Python, using familiar `pandas` dataframes.
 
