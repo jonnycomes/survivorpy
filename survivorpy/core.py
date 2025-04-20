@@ -1,9 +1,11 @@
-import pandas as pd
-from pathlib import Path
+import os
+import boto3
 import requests
+import pandas as pd
+from io import BytesIO
+from pathlib import Path
 
 
-_DATA_URL = "https://raw.githubusercontent.com/yourname/survivordata/main/data/" ## Modify later
 _LOCAL_DATA_DIR = Path(__file__).parent.parent / "data" / "raw"
 _VALID_TABLES = {
     "castaways": "castaways.parquet",
@@ -14,26 +16,44 @@ _VALID_TABLES = {
 
 def load(table: str, refresh: bool = False) -> pd.DataFrame:
     """
-    Load a Survivor dataset as a pandas DataFrame.
+    Load a Survivor dataset from local storage, refreshing from the source if necessary.
 
     Parameters:
-        table (str): Name of the table to load (e.g., "castaways")
+        table (str): The name of the table to load (e.g., "castaways").
+        refresh (bool): If True, forces the dataset to be reloaded, bypassing the local cache.
 
     Returns:
         pd.DataFrame: The requested dataset.
+
+    Raises:
+        ValueError: If the provided table name is not recognized.
     """
     if table not in _VALID_TABLES:
         raise ValueError(f"Unknown table: '{table}'. Choose from: {list(_VALID_TABLES)}")
 
-    fname = f"{table}.parquet"
-    local_path = _LOCAL_DATA_DIR / fname
+    local_path = os.path.join(_LOCAL_DATA_DIR, f"{table}.parquet")
+    
+    # Use local data when appropriate
+    if not refresh and os.path.exists(local_path):
+        return pd.read_parquet(local_path)
 
-    if refresh or not local_path.exists():
-        _LOCAL_DATA_DIR.mkdir(exist_ok=True)
-        url = _DATA_URL + fname
-        r = requests.get(url)
-        r.raise_for_status()
-        with open(local_path, "wb") as f:
-            f.write(r.content)
+    # Fetch the data from the remote source
+    try:
+        s3 = boto3.client('s3')
+        s3_key = f"{table}.parquet"
+        response = s3.get_object(Bucket='survivorpy-data', Key=s3_key)
+        
+        # Read the data from the response
+        parquet_data = response['Body'].read()
+        df = pd.read_parquet(BytesIO(parquet_data))
+        
+        # Save the data locally for future use
+        os.makedirs(_LOCAL_DATA_DIR, exist_ok=True)
+        df.to_parquet(local_path)
 
-    return pd.read_parquet(local_path)
+        return df
+
+    except Exception as e:
+        print(f"Error loading {table}: {e}")
+        return None
+
