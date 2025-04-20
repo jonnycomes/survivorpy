@@ -41,7 +41,7 @@ We thank the `survivoR` team for making this rich dataset available to the publi
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for full details.
 
-This package also redistributes data from the `survivoR` R package, which is licensed under the MIT License. The original license and attribution from `survivoR` are preserved in accordance with the terms of that license. For more information, see the [`survivoR` GitHub repository](https://github.com/doehm/survivoR).
+This package redistributes data from the `survivoR` R package, which is also licensed under the MIT License. The original license and attribution from `survivoR` are preserved in accordance with the terms of that license. For more information, see the [survivoR GitHub repository](https://github.com/doehm/survivoR).
 
 ## Contributing
 
