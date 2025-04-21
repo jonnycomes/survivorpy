@@ -3,13 +3,6 @@ name: Upload Survivor Data to S3
 on:
   workflow_dispatch:
 
-  # push:
-  #   branches:
-  #     - main
-  #
-  # schedule:
-  #   - cron: '0 8 * * 6'  # Every Saturday at 1am MST (8am UTC)
-
 jobs:
   upload_to_s3:
     runs-on: ubuntu-latest
@@ -38,9 +31,9 @@ jobs:
             make \
             g++
 
-          # Add Arrow repository to install libarrow-dev
-          echo "deb [signed-by=/usr/share/keyrings/arrow-archive-keyring.gpg] https://dl.bintray.com/apache/arrow/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
-          curl https://dl.bintray.com/apache/arrow/ubuntu/arrow-archive-keyring.gpg | sudo tee /usr/share/keyrings/arrow-archive-keyring.gpg
+          # Add the new Arrow repository for Ubuntu
+          echo "deb [signed-by=/usr/share/keyrings/arrow-archive-keyring.gpg] https://apache.jfrog.io/artifactory/arrow-deb/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
+          curl https://apache.jfrog.io/artifactory/api/gpg/key/public | sudo tee /usr/share/keyrings/arrow-archive-keyring.gpg
           sudo apt-get update
           sudo apt-get install -y libarrow-dev
 
