@@ -29,7 +29,7 @@ df_episodes = svr.load("episodes")
 # etc.
 ```
 
-More usage examples and full documentation will be added as the project develops.
+More usage examples and documentation will be added as the project develops.
 
 ## Data Source and Attribution
 
