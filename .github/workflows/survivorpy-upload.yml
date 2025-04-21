@@ -31,9 +31,9 @@ jobs:
             make \
             g++
 
-          # Add the new Arrow repository for Ubuntu
-          echo "deb [signed-by=/usr/share/keyrings/arrow-archive-keyring.gpg] https://apache.jfrog.io/artifactory/arrow-deb/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
-          curl https://apache.jfrog.io/artifactory/api/gpg/key/public | sudo tee /usr/share/keyrings/arrow-archive-keyring.gpg
+          # Add the official Apache Arrow repository
+          echo "deb [signed-by=/usr/share/keyrings/apache-archive-keyring.gpg] https://apache.jfrog.io/artifactory/arrow-deb/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
+          curl -fsSL https://apache.jfrog.io/artifactory/api/gpg/key/public | sudo tee /usr/share/keyrings/apache-archive-keyring.gpg
           sudo apt-get update
           sudo apt-get install -y libarrow-dev
 
