@@ -34,10 +34,15 @@ jobs:
             libpng-dev \
             libtiff5-dev \
             libjpeg-dev \
-            libarrow-dev \
             cmake \
             make \
             g++
+
+          # Add Arrow repository to install libarrow-dev
+          echo "deb [signed-by=/usr/share/keyrings/arrow-archive-keyring.gpg] https://dl.bintray.com/apache/arrow/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
+          curl https://dl.bintray.com/apache/arrow/ubuntu/arrow-archive-keyring.gpg | sudo tee /usr/share/keyrings/arrow-archive-keyring.gpg
+          sudo apt-get update
+          sudo apt-get install -y libarrow-dev
 
       - name: Set up R user library
         run: |
