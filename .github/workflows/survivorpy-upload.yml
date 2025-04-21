@@ -32,9 +32,17 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y r-base
+
+          # Install required R packages
+          Rscript -e 'install.packages(c("arrow", "aws.s3", "jsonlite"), repos="https://cloud.r-project.org")'
+          Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org")'
+          Rscript -e 'remotes::install_github("doehm/survivoR")'
+
+          # Run the script
           Rscript scripts/convert_survivor_to_parquet.R
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
 
