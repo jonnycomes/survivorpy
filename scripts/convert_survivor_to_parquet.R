@@ -19,6 +19,7 @@ dataset_names <- data(package = "survivoR")$results[, "Item"]
 # Collect written table names
 written_tables <- c()
 
+# Convert dataframes to parquet files and upload to S3
 for (name in dataset_names) {
   df <- tryCatch(get(name, envir = asNamespace("survivoR")),
                  error = function(e) NULL)
@@ -50,6 +51,5 @@ put_object(
   bucket = s3_bucket,
   region = "us-west-2"
 )
-
 
 cat("Done! Wrote", length(written_tables), "parquet files and table_names.py to S3\n")
