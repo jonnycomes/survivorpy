@@ -9,35 +9,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Install system dependencies
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Set up R dependencies
         run: |
-          sudo apt-get update
           sudo apt-get install -y \
-            r-base \
-            libcurl4-openssl-dev \
-            libssl-dev \
-            libxml2-dev \
-            libgit2-dev \
-            libharfbuzz-dev \
-            libfribidi-dev \
-            libfontconfig1-dev \
-            libfreetype6-dev \
-            libpng-dev \
-            libtiff5-dev \
-            libjpeg-dev \
-            cmake \
-            make \
-            g++
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          cmake \
+          make \
+          g++
 
-          # Add the official Apache Arrow repository
-          echo "deb [signed-by=/usr/share/keyrings/apache-archive-keyring.gpg] https://apache.jfrog.io/artifactory/arrow-deb/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/apache-arrow.list
-          curl -fsSL https://apache.jfrog.io/artifactory/api/gpg/key/public | sudo tee /usr/share/keyrings/apache-archive-keyring.gpg
-          sudo apt-get update
-          sudo apt-get install -y libarrow-dev
-
-      - name: Set up R user library
+      - name: Set up R library path
         run: |
           mkdir -p ~/.R/library
           echo 'R_LIBS_USER="~/.R/library"' >> ~/.Renviron
@@ -50,9 +37,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-r-library-
 
-      - name: Install R package dependencies
+      - name: Install R packages
         run: |
-          Rscript -e 'install.packages(c("arrow", "aws.s3", "jsonlite", "remotes"), repos="https://cloud.r-project.org", lib="~/.R/library")'
+          Rscript -e 'install.packages(c("aws.s3", "jsonlite", "remotes"), repos="https://cloud.r-project.org", lib="~/.R/library")'
+          Rscript -e 'install.packages("arrow", repos="https://cloud.r-project.org", type = "source", lib="~/.R/library")'
           Rscript -e 'remotes::install_github("doehm/survivoR", lib="~/.R/library")'
 
       - name: Run R script to upload data to S3
