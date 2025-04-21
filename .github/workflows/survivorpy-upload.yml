@@ -18,37 +18,49 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run R script to upload data
-        run: |
-          # Install base R
           sudo apt-get update
-          sudo apt-get install -y r-base
+          sudo apt-get install -y \
+            r-base \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libgit2-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libfontconfig1-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev \
+            libarrow-dev \
+            cmake \
+            make \
+            g++
 
-          # Create a user-level R library directory and configure R to use it
+      - name: Set up R user library
+        run: |
           mkdir -p ~/.R/library
           echo 'R_LIBS_USER="~/.R/library"' >> ~/.Renviron
 
-          # Install required R packages to the user library
-          Rscript -e 'install.packages(c("arrow", "aws.s3", "jsonlite"), repos="https://cloud.r-project.org", lib="~/.R/library")'
-          Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org", lib="~/.R/library")'
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.R/library
+          key: ${{ runner.os }}-r-library-${{ hashFiles('**/scripts/convert_survivor_to_parquet.R') }}
+          restore-keys: |
+            ${{ runner.os }}-r-library-
+
+      - name: Install R package dependencies
+        run: |
+          Rscript -e 'install.packages(c("arrow", "aws.s3", "jsonlite", "remotes"), repos="https://cloud.r-project.org", lib="~/.R/library")'
           Rscript -e 'remotes::install_github("doehm/survivoR", lib="~/.R/library")'
 
-          # Set the library path explicitly and run the R script
+      - name: Run R script to upload data to S3
+        run: |
           Rscript -e '.libPaths("~/.R/library"); source("scripts/convert_survivor_to_parquet.R")'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-
-
-
