@@ -1,6 +1,6 @@
 # SurvivorPy
 
-SurvivorPy is a Python wrapper of the data from the R package [survivoR](https://github.com/doehm/survivoR). It enables easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality show *Survivor*—directly from Python, using familiar `pandas` dataframes.
+SurvivorPy is a Python wrapper of the data from the R package [survivoR](https://github.com/doehm/survivoR). It enables Python coders easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality show *Survivor*—directly from Python, using familiar `pandas` dataframes.
 
 SurvivorPy syncs its data with survivoR on a weekly basis, ensuring the data reflects recent updates to the survivoR package.
 
@@ -14,22 +14,49 @@ pip install survivorpy
 
 ## Usage
 
+There are a few different ways to access Survivor data with `survivorpy`, depending on your preferences and needs.
+
+### Import tables directly
+
+If you know the name of the table you want, you can import it directly:
 
 ```python
 from survivorpy import castaways
 
-print(castaways.head())
+castaways.head()
 ```
+
+### View all available table names
+To see the full list of table names provided by survivorpy, use the `TABLE_NAMES` constant:
 
 ```python
-import survivorpy as svr
+from survivorpy import TABLE_NAMES
 
-df_castaways = svr.load("castaways")
-df_episodes = svr.load("episodes")
-# etc.
+print(TABLE_NAMES)
+# [..., 'castaways', ...]
 ```
 
-More usage examples and documentation will be added as the project develops.
+### Using the `load()` function
+`survivorpy` provides a `load()` function which gives an alternative way to access the tables:
+
+```python
+import survivorpy as sv
+
+df = sv.load('castaways')
+df.head()
+```
+
+By default, survivorpy caches tables locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the refresh argument:
+
+```python
+import survivorpy as sv
+
+df = sv.load('castaways', refresh=True)
+```
+### More examples
+
+For more interesting examples, see [examples/advanced_usage.ipynb](examples/advanced_usage.ipynb).
+
 
 ## Data Source and Attribution
 
