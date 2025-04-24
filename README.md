@@ -1,12 +1,12 @@
 # SurvivorPy
 
-**survivorpy** is a Python wrapper of the Survivor data from the R package [survivoR](https://github.com/doehm/survivoR). It enables easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality TV show *Survivor*—directly from Python, using familiar `pandas` dataframes.
+SurvivorPy is a Python wrapper of the data from the R package [survivoR](https://github.com/doehm/survivoR). It enables easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality show *Survivor*—directly from Python, using familiar `pandas` dataframes.
 
-This package is designed to stay in sync with updates to the original R package, allowing Python users to benefit from ongoing enhancements and new data.
+SurvivorPy syncs its data with survivoR on a weekly basis, ensuring the data reflects recent updates to the survivoR package.
 
 ## Installation
 
-Coming soon — the package will be installable via `pip`.
+Coming soon — the package will be pip installable.
 
 ```bash
 pip install survivorpy
@@ -33,21 +33,16 @@ More usage examples and documentation will be added as the project develops.
 
 ## Data Source and Attribution
 
-The data used in this package is sourced from the [`survivoR`](https://github.com/doehm/survivoR) R package by Daniel Oehm and contributors. The original package is licensed under the MIT License.
+This package provides Python access to data from the [survivoR](https://github.com/doehm/survivoR) package by Daniel Oehm and contributors. We’re grateful to the folks at survivoR for maintaining such a rich and well-structured dataset.
 
-We thank the `survivoR` team for making this rich dataset available to the public and for maintaining an up-to-date and comprehensive resource.
+The original data is licensed under the MIT License, and we preserve that license and attribution in accordance with its terms.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for full details.
-
-This package redistributes data from the `survivoR` R package, which is also licensed under the MIT License. The original license and attribution from `survivoR` are preserved in accordance with the terms of that license. For more information, see the [survivoR GitHub repository](https://github.com/doehm/survivoR).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or pull request if you'd like to improve the package.
+Got ideas or spot a bug? Feel free to open an issue or pull request — contributions of all kinds are welcome!
 
-## Disclaimer
-
-This package is not affiliated with or endorsed by CBS, the producers of *Survivor*, or the creators of the original dataset. It is intended for educational, analytical, and research purposes — and definitely not just because it was fun to make.
 
