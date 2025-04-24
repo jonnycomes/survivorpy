@@ -46,7 +46,7 @@ df = sv.load('castaways')
 df.head()
 ```
 
-By default, survivorpy caches tables locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the `refresh` tag:
+By default, survivorpy caches each table locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the `refresh` tag:
 
 ```python
 df = sv.load('castaways', refresh=True)
