@@ -14,9 +14,9 @@ pip install survivorpy
 
 ## Usage
 
-There are a few different ways to access Survivor data with `survivorpy`, depending on your preferences and needs.
+There are a few different ways to access Survivor data with `survivorpy`, depending on your preferences and needs. In all cases, the tables are provided as `pandas` DataFrames.
 
-### Import tables directly
+### Import a table directly
 
 If you know the name of the table you want, you can import it directly:
 
@@ -26,8 +26,8 @@ from survivorpy import castaways
 castaways.head()
 ```
 
-### View all available table names
-To see the full list of table names provided by survivorpy, use the `TABLE_NAMES` constant:
+### See all available tables
+To see what's available, use the `TABLE_NAMES` constant:
 
 ```python
 from survivorpy import TABLE_NAMES
@@ -46,17 +46,13 @@ df = sv.load('castaways')
 df.head()
 ```
 
-By default, survivorpy caches tables locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the refresh argument:
+By default, survivorpy caches tables locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the `refresh` tag:
 
 ```python
-import survivorpy as sv
-
 df = sv.load('castaways', refresh=True)
 ```
-### More examples
 
-More interesting examples coming soon...
-
+No matter which method you choose, you’ll get rich Survivor data, neatly packaged and ready to explore with your favorite `pandas` tools.
 
 ## Data Source and Attribution
 
