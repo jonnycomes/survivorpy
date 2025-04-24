@@ -55,7 +55,7 @@ df = sv.load('castaways', refresh=True)
 ```
 ### More examples
 
-For more interesting examples, see [examples/advanced_usage.ipynb](examples/advanced_usage.ipynb).
+For more interesting examples, see [examples.md](examples/examples.md).
 
 
 ## Data Source and Attribution
