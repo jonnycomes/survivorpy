@@ -1,4 +1,4 @@
-from .core import load
+from .data import load
 from .table_names import _load_table_names
 
 TABLE_NAMES = _load_table_names()
