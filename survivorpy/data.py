@@ -3,12 +3,9 @@ import boto3
 import requests
 import pandas as pd
 from io import BytesIO
-from pathlib import Path
 from appdirs import user_cache_dir
 from .table_names import _load_table_names
-
-_CACHE_DIR = Path(user_cache_dir("survivorpy", "jonnycomes"))
-_LOCAL_DATA_DIR = _CACHE_DIR / "tables"
+from .config import _CACHE_DIR, _CACHE_DATA_DIR
 
 def load(table: str, refresh: bool = False) -> pd.DataFrame:
     """
@@ -31,7 +28,7 @@ def load(table: str, refresh: bool = False) -> pd.DataFrame:
     if table not in table_names_list:
         raise ValueError(f"Unknown table: '{table}'. Choose from: {table_names_list}")
 
-    local_path = os.path.join(_LOCAL_DATA_DIR, f"{table}.parquet")
+    local_path = os.path.join(_CACHE_DATA_DIR, f"{table}.parquet")
     
     # Use local data when appropriate
     if not refresh and os.path.exists(local_path):
@@ -48,7 +45,7 @@ def load(table: str, refresh: bool = False) -> pd.DataFrame:
         df = pd.read_parquet(BytesIO(parquet_data))
         
         # Save the data locally for future use
-        os.makedirs(_LOCAL_DATA_DIR, exist_ok=True)
+        os.makedirs(_CACHE_DATA_DIR, exist_ok=True)
         df.to_parquet(local_path)
 
         return df
