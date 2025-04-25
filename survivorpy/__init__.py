@@ -1,5 +1,4 @@
-from .data import load
-from .table_names import _load_table_names
+from .data import load, _load_table_names
 
 TABLE_NAMES = _load_table_names()
 
