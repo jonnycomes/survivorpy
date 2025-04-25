@@ -4,9 +4,11 @@ import requests
 import pandas as pd
 from io import BytesIO
 from pathlib import Path
+from appdirs import user_cache_dir
 from .table_names import _load_table_names
 
-_LOCAL_DATA_DIR = Path(__file__).parent.parent / "data"
+_CACHE_DIR = Path(user_cache_dir("survivorpy", "jonnycomes"))
+_LOCAL_DATA_DIR = _CACHE_DIR / "tables"
 
 def load(table: str, refresh: bool = False) -> pd.DataFrame:
     """
