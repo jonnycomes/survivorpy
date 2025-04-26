@@ -14,7 +14,8 @@ pip install survivorpy
 
 ## Usage
 
-There are a few different ways to access Survivor data with `survivorpy`, depending on your preferences and needs. In all cases, the tables are provided as `pandas` DataFrames.
+There are a couple of different ways to access Survivor data with `survivorpy`, depending on your preferences and needs. In both cases, the tables are provided as `pandas` DataFrames.
+
 
 ### Import a table directly
 
