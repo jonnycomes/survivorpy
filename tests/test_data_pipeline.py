@@ -2,7 +2,6 @@ import boto3
 import pytest
 from survivorpy.config import _S3_BUCKET, _S3_TABLE_NAMES_KEY
 
-
 s3 = boto3.client("s3")
 
 def test_survivor_data_in_s3():

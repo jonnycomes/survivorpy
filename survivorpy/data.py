@@ -52,7 +52,6 @@ def load(table: str) -> pd.DataFrame:
     local_path = os.path.join(_CACHE_DATA_DIR, f"{table}.parquet")
     return pd.read_parquet(local_path)
 
-
 def get_table_names():
     """
     Load the list of available Survivor datasets from the local cache.

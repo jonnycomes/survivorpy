@@ -15,4 +15,3 @@ def __getattr__(name):
         f"module 'survivorpy' has no attribute '{name}'. "
         f"Available tables: {', '.join(get_table_names())}"
     )
-

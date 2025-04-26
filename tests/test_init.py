@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 
-def test_getattr_returns_dataframe():
+def test_getattr_returns_load():
     import survivorpy
     with patch("survivorpy.load", return_value="MOCK"), \
          patch("survivorpy.TABLE_NAMES", ["castaways"]):
