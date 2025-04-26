@@ -46,13 +46,25 @@ df = sv.load('castaways')
 df.head()
 ```
 
-By default, survivorpy caches each table locally after the first download. To fetch the latest version from the source (kept in sync weekly with the survivoR package), use the `refresh` tag:
+No matter which method you choose, you’ll get rich Survivor data, neatly packaged and ready to explore with your favorite `pandas` tools.
+
+
+### Keeping data up to date
+
+`survivorpy` caches each table on first import, so loading the data—whether by `load()` or direct import—is fast and works offline.
+To sync your local cache with the latest data from the source (typically updated weekly to match the R package `survivoR`), use:
 
 ```python
-df = sv.load('castaways', refresh=True)
+sv.refresh_data()
 ```
 
-No matter which method you choose, you’ll get rich Survivor data, neatly packaged and ready to explore with your favorite `pandas` tools.
+You can check the last time your data was synced with:
+
+```python
+sv.LAST_SYNCED
+# e.g., '2025-04-25T18:42:07.235Z'
+```
+
 
 ## Data Source and Attribution
 
