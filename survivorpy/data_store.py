@@ -2,7 +2,7 @@ import os
 import boto3
 import pandas as pd
 from io import BytesIO
-from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAME_PATH, _S3_BUCKET, _S3_TABLE_NAMES_KEY
+from .config import _CACHE_DATA_DIR, _CACHE_TABLES_NAME_PATH, _S3_BUCKET, _S3_TABLE_NAMES_KEY
 
 def _cache_data(tables):
     """
@@ -38,7 +38,7 @@ def _cache_table_names():
     Downloads the metadata file containing available table names from the source
     and stores it in the local cache.
     """
-    os.makedirs(os.path.dirname(_CACHE_TABLE_NAME_PATH), exist_ok=True)
+    os.makedirs(os.path.dirname(_CACHE_TABLES_NAME_PATH), exist_ok=True)
     s3 = boto3.client("s3")
-    s3.download_file(_S3_BUCKET, _S3_TABLE_NAMES_KEY, _CACHE_TABLE_NAME_PATH)
+    s3.download_file(_S3_BUCKET, _S3_TABLE_NAMES_KEY, _CACHE_TABLES_NAME_PATH)
     

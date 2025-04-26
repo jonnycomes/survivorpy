@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 from .data_store import *
-from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAME_PATH
+from .config import _CACHE_DATA_DIR, _CACHE_TABLES_NAME_PATH
 
 def refresh_data():
     """
@@ -73,6 +73,6 @@ def get_table_names():
     Notes:
         You can also access the available table names via the `TABLE_NAMES` attribute.
     """
-    with open(_CACHE_TABLE_NAME_PATH, "r") as f:
+    with open(_CACHE_TABLE_NAMES_PATH, "r") as f:
         return json.load(f)
 
