@@ -10,7 +10,7 @@ def test_get_table_names_from_cache(tmp_path):
     tables = ["castaways", "seasons"]
     cache_path.write_text(json.dumps(tables))
 
-    with patch("survivorpy.data._CACHE_TABLE_NAME_PATH", str(cache_path)):
+    with patch("survivorpy.data._CACHE_TABLE_NAMES_PATH", str(cache_path)):
         result = data.get_table_names()
         assert result == tables
 
