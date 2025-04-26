@@ -1,87 +1,79 @@
 import os
-import boto3
 import json
-import requests
 import pandas as pd
-from io import BytesIO
-from appdirs import user_cache_dir
-from .config import _CACHE_DIR, _CACHE_DATA_DIR, _CACHE_TABLE_NAME_PATH, _S3_BUCKET, _S3_KEY
+from .data_store import *
+from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAME_PATH
 
-
-def load(table: str, refresh: bool = False) -> pd.DataFrame:
+def refresh_data():
     """
-    Load a Survivor dataset from local storage, refreshing from the source if necessary.
+    Refresh the local data cache by downloading the latest available datasets from the source.
+
+    This function updates all Survivor datasets and the list of available table names. 
+    It should be used when you want to ensure you have the most current version of the data.
+
+    After calling this function, you can access updated datasets using `load("table_name")` 
+    or module-level attributes like `survivorpy.castaways`.
+
+    Example:
+        from survivorpy import refresh_data
+        refresh_data()
+    """
+    _cache_table_names()
+    tables = get_table_names()
+    _cache_data(tables)
+
+def load(table: str) -> pd.DataFrame:
+    """
+    Load a Survivor dataset from the local cache.
+
+    This function reads a previously cached dataset into a pandas DataFrame. 
+    It does not attempt to download or refresh the data. Use `refresh_data()` 
+    first if you need to ensure the local data is up to date.
 
     Parameters:
-        table (str): The name of the table to load (e.g., "castaways").
-        refresh (bool): If True, forces the dataset to be reloaded, bypassing the local cache.
+        table (str): The name of the dataset to load (e.g., "castaways").
 
     Returns:
         pd.DataFrame: The requested dataset.
 
     Raises:
         ValueError: If the provided table name is not recognized.
+        OSError, ValueError, etc.: If the local file is missing or unreadable.
+
+    Example:
+        import survivorpy as sv
+        df = sv.load("castaways")
     """
-    table_names_list = _load_table_names(refresh=refresh)
-    if refresh:
-        globals()["TABLE_NAMES"] = table_names_list
+    table_names_list = get_table_names()
 
     if table not in table_names_list:
         raise ValueError(f"Unknown table: '{table}'. Choose from: {table_names_list}")
 
     local_path = os.path.join(_CACHE_DATA_DIR, f"{table}.parquet")
-    
-    # Use local data when appropriate
-    if not refresh and os.path.exists(local_path):
-        return pd.read_parquet(local_path)
-
-    # Fetch the data from the remote source
-    try:
-        s3 = boto3.client('s3')
-        s3_key = f"tables/{table}.parquet"
-        response = s3.get_object(Bucket='survivorpy-data', Key=s3_key)
-        
-        # Read the data from the response
-        parquet_data = response['Body'].read()
-        df = pd.read_parquet(BytesIO(parquet_data))
-        
-        # Save the data locally for future use
-        os.makedirs(_CACHE_DATA_DIR, exist_ok=True)
-        df.to_parquet(local_path)
-
-        return df
-
-    except Exception as e:
-        print(f"Error loading {table}: {e}")
-        return None
+    return pd.read_parquet(local_path)
 
 
-def _fetch_table_names_from_s3():
-    """Download the table_names.json file from S3 to the local cache path."""
-    s3 = boto3.client("s3")
-    s3.download_file(_S3_BUCKET, _S3_KEY, _CACHE_TABLE_NAME_PATH)
-
-def _load_table_names(refresh=False):
+def get_table_names():
     """
-    Load the list of available Survivor data tables.
+    Load the list of available Survivor datasets from the local cache.
 
-    Args:
-        refresh (bool): If True, fetch a fresh copy from S3 even if cached.
+    This function reads the names of previously cached datasets. It does not attempt 
+    to download or refresh the data. Use `refresh_data()` to update the cache 
+    if you need to ensure the list of datasets is current.
 
     Returns:
-        list[str]: Table names (or an empty list on failure).
-    """
-    if refresh or not os.path.exists(_CACHE_TABLE_NAME_PATH) or os.stat(_CACHE_TABLE_NAME_PATH).st_size == 0:
-        try:
-            os.makedirs(os.path.dirname(_CACHE_TABLE_NAME_PATH), exist_ok=True)
-            _fetch_table_names_from_s3()
-        except Exception as e:
-            print(f"Warning: Could not refresh table names from S3: {e}")
-            return []
+        list[str]: A list of dataset names (e.g., [..., "castaways",...]).
 
-    try:
-        with open(_CACHE_TABLE_NAME_PATH, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Warning: Failed to load cached table names: {e}")
-        return []
+    Raises:
+        OSError: If the table names cache file is missing or unreadable.
+
+    Example:
+        import survivorpy as sv
+        tables = sv.get_table_names()
+
+    Notes:
+        You can also access the available table names via the `TABLE_NAMES` attribute.
+    """
+    with open(_CACHE_TABLE_NAME_PATH, "r") as f:
+        return json.load(f)
+
