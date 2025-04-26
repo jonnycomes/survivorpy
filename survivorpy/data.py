@@ -1,8 +1,8 @@
 import os
 import json
 import pandas as pd
-from .data_store import *
-from .config import _CACHE_DATA_DIR, _CACHE_TABLES_NAME_PATH
+from .data_store import _cache_table_names, _cache_data, _update_last_synced
+from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
 def refresh_data():
     """
@@ -21,6 +21,7 @@ def refresh_data():
     _cache_table_names()
     tables = get_table_names()
     _cache_data(tables)
+    _update_last_synced()
 
 def load(table: str) -> pd.DataFrame:
     """
@@ -75,4 +76,27 @@ def get_table_names():
     """
     with open(_CACHE_TABLE_NAMES_PATH, "r") as f:
         return json.load(f)
+
+def get_last_synced():
+    """
+    Return the timestamp of the most recent successful data sync.
+
+    Returns:
+        str: An ISO 8601 timestamp string (e.g., "2025-04-25T19:12:05.123Z").
+
+    Raises:
+        FileNotFoundError: If the sync timestamp file does not exist.
+        ValueError: If the file contents are invalid.
+
+    Example:
+        import survivorpy as sv
+        tables = sv.get_last_synced()
+
+    Notes:
+        You can also access the available table names via the `LAST_SYNCED` attribute.
+
+    """
+    with open(_CACHE_LAST_SYNCED_PATH, "r") as f:
+        return json.load(f)["timestamp"]
+
 
