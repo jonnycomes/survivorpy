@@ -1,7 +1,7 @@
 import os
 import json
 import pandas as pd
-from .data_store import _cache_table_names, _cache_data, _update_last_synced
+from .sync import _cache_table_names, _cache_data, _update_last_synced
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
 def refresh_data():
