@@ -5,14 +5,15 @@ from .config import _CACHE_DIR
 if not _CACHE_DIR.exists() or not any(_CACHE_DIR.iterdir()):
     refresh_data()
 
+TABLE_NAMES = get_table_names()
+LAST_SYNCED = get_last_synced()
+
 def __getattr__(name):
-    if name == "TABLE_NAMES":
-        return get_table_names()
-    if name == "LAST_SYNCED":
-        return get_last_synced()
     if name in get_table_names():
         return load(name)
     raise AttributeError(
         f"module 'survivorpy' has no attribute '{name}'. "
         f"Available tables: {', '.join(get_table_names())}"
     )
+
+__all__ = ["load", "refresh_data", "TABLE_NAMES", "get_table_names", "LAST_SYNCED", "get_last_synced"] + TABLE_NAMES
