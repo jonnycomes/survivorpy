@@ -8,7 +8,6 @@ s3_bucket <- "survivorpy-data"
 s3_prefix_parquet <- "tables/"
 s3_prefix_metadata <- "metadata/"
 
-
 # Temporary output directories
 parquet_dir <- tempdir()
 table_names_json <- file.path(tempdir(), "table_names.json")

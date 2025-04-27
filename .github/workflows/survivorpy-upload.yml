@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.R/library
-          key: ${{ runner.os }}-r-library-${{ hashFiles('data_fetching/convert_survivor_to_parquet.R') }}
+          key: ${{ runner.os }}-r-library-${{ hashFiles('data_pipeline/survivor_data_pipeline.R') }}
           restore-keys: |
             ${{ runner.os }}-r-library-
 
@@ -40,7 +40,7 @@ jobs:
 
       - name: Run R script to upload data to S3
         run: |
-          Rscript -e '.libPaths("~/.R/library"); source("data_fetching/convert_survivor_to_parquet.R")'
+          Rscript -e '.libPaths("~/.R/library"); source("data_pipeline/survivor_data_pipeline.R")'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
