@@ -17,7 +17,7 @@ This module provides an easy and efficient way to interact with detailed *Surviv
 """
 
 from .data import load, refresh_data, get_table_names, get_last_synced
-from .config import has_cache
+from .sync import has_cache
 
 # Refresh the data if cache is not set up
 if not has_cache():

@@ -3,7 +3,35 @@ import json
 import pandas as pd
 from io import BytesIO
 from datetime import datetime
-from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH, _S3_BUCKET, _S3_TABLE_NAMES_KEY
+from .config import _CACHE_DIR, _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH, _S3_BUCKET, _S3_TABLE_NAMES_KEY
+
+def has_cache():
+    """
+    Checks if the cache is properly set up by ensuring that the cache
+    directory and its necessary files and subdirectories exist and are non-empty.
+
+    Specifically, it checks:
+    - The existence of the main cache directory.
+    - The existence of the 'tables' subdirectory.
+    - The existence of the 'table_names.json' and 'last_synced.json' files.
+
+    Returns:
+        bool: True if the cache is fully set up (all directories and files exist and are non-empty),
+              False otherwise.
+    """
+    if not _CACHE_DIR.exists() or not _CACHE_DIR.is_dir():
+        return False
+
+    if not _CACHE_DATA_DIR.exists() or not _CACHE_DATA_DIR.is_dir() or not any(_CACHE_DATA_DIR.iterdir()):
+        return False
+
+    if not _CACHE_TABLE_NAMES_PATH.exists() or not _CACHE_TABLE_NAMES_PATH.is_file():
+        return False
+
+    if not _CACHE_LAST_SYNCED_PATH.exists() or not _CACHE_LAST_SYNCED_PATH.is_file():
+        return False
+
+    return True
 
 def _cache_data(tables):
     """
