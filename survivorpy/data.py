@@ -18,8 +18,8 @@ def refresh_data():
         refresh_data()
     """
     _cache_table_names()
-    tables = get_table_names()
-    _cache_data(tables)
+    table_names = get_table_names()
+    _cache_data(table_names)
     _update_last_synced()
 
 def load(table: str) -> pd.DataFrame:

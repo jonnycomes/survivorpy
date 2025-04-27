@@ -33,7 +33,7 @@ def has_cache():
 
     return True
 
-def _cache_data(tables):
+def _cache_data(table_names):
     """
     Download datasets from the source and store them in the local cache.
 
@@ -42,14 +42,14 @@ def _cache_data(tables):
     Overwrites any existing files with the same name.
 
     Parameters:
-        tables (list[str]): A list of table names to download.
+        table_names (list[str]): A list of table names to download.
 
     Raises:
         Exception: If any download or file operation fails.
     """
     _CACHE_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    for table in tables:
+    for table in table_names:
         local_path = _CACHE_DATA_DIR / f"{table}.parquet"
         s3 = boto3.client('s3')
         s3_key = f"tables/{table}.parquet"
