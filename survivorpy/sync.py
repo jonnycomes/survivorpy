@@ -1,4 +1,3 @@
-import os
 import boto3
 import json
 import pandas as pd
@@ -20,10 +19,10 @@ def _cache_data(tables):
     Raises:
         Exception: If any download or file operation fails.
     """
-    os.makedirs(_CACHE_DATA_DIR, exist_ok=True)
+    _CACHE_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     for table in tables:
-        local_path = os.path.join(_CACHE_DATA_DIR, f"{table}.parquet")
+        local_path = _CACHE_DATA_DIR / f"{table}.parquet"
         s3 = boto3.client('s3')
         s3_key = f"tables/{table}.parquet"
         response = s3.get_object(Bucket=_S3_BUCKET, Key=s3_key)
@@ -43,7 +42,7 @@ def _cache_table_names():
 
     This file is used to support the `TABLE_NAMES` attribute in the public API.
     """
-    os.makedirs(os.path.dirname(_CACHE_TABLE_NAMES_PATH), exist_ok=True)
+    _CACHE_TABLE_NAMES_PATH.parent.mkdir(parents=True, exist_ok=True)
     s3 = boto3.client("s3")
     s3.download_file(_S3_BUCKET, _S3_TABLE_NAMES_KEY, _CACHE_TABLE_NAMES_PATH)
 
@@ -57,7 +56,7 @@ def _update_last_synced():
 
     This file is used to support the `LAST_SYNCED` attribute in the public API.
     """
-    os.makedirs(os.path.dirname(_CACHE_LAST_SYNCED_PATH), exist_ok=True)
+    _CACHE_LAST_SYNCED_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(_CACHE_LAST_SYNCED_PATH, "w") as f:
         json.dump({"timestamp": datetime.utcnow().isoformat()}, f)
 

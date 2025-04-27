@@ -1,4 +1,3 @@
-import os
 import json
 import pandas as pd
 from .sync import _cache_table_names, _cache_data, _update_last_synced
@@ -50,7 +49,7 @@ def load(table: str) -> pd.DataFrame:
     if table not in table_names_list:
         raise ValueError(f"Unknown table: '{table}'. Choose from: {table_names_list}")
 
-    local_path = os.path.join(_CACHE_DATA_DIR, f"{table}.parquet")
+    local_path = _CACHE_DATA_DIR / f"{table}.parquet"
     return pd.read_parquet(local_path)
 
 def get_table_names():

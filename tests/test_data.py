@@ -15,7 +15,7 @@ def test_get_table_names_from_cache(mock_path, tmp_path):
         assert result == tables
 
 @patch("survivorpy.data.pd.read_parquet")
-@patch("survivorpy.data.os.path.exists", return_value=True)
+@patch("survivorpy.config.Path.exists", return_value=True)
 @patch("survivorpy.data.get_table_names", return_value=["castaways"])
 def test_load_reads_local_file(mock_get_names, mock_exists, mock_read):
     df_mock = pd.DataFrame({"name": ["Richard", "Kelly"]})
