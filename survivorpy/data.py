@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import requests
+import time
 from .sync import _cache_table_names, _cache_data, _update_last_synced
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
@@ -115,8 +116,9 @@ def _get_last_data_updated():
     Notes:
         This function checks the 'data_pipeline/data_last_updated.json' file in the repository.
     """
-    url = "https://raw.githubusercontent.com/YOUR_USERNAME/survivorpy/main/data_pipeline/data_last_updated.json"
-    response = requests.get(url)
+    base_url = "https://raw.githubusercontent.com/jonnycomes/survivorpy/update-refresh-logic/data_pipeline/data_last_updated.json"
+    url = f"{base_url}?nocache={int(time.time())}"  # Add a timestamp to bust cache
+    response = requests.get(url, headers={"Cache-Control": "no-cache"})
 
     if response.status_code != 200:
         raise Exception(f"Failed to fetch data_last_updated.json from GitHub (status code {response.status_code}).")
