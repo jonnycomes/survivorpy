@@ -75,7 +75,7 @@ The original data is licensed under the MIT License, and we preserve that licens
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/jonnycomes/survivorpy/blob/main/LICENSE) file for details.
 
 ## Contributing
 
