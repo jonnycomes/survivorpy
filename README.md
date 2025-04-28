@@ -79,6 +79,7 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ## Contributing
 
-Got ideas or spot a bug? Feel free to open an issue or pull request — contributions of all kinds are welcome!
+Got ideas or spot a bug? Feel free to open an [issue](https://github.com/jonnycomes/survivorpy/issues) or a [pull request](https://github.com/jonnycomes/survivorpy/pulls) — contributions of all kinds are welcome!
+
 
 
