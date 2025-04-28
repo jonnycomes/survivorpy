@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 import requests
-import time
+import base64
 from .sync import _cache_table_names, _cache_data, _update_last_synced
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
@@ -116,15 +116,18 @@ def _get_last_data_updated():
     Notes:
         This function checks the 'data_pipeline/data_last_updated.json' file in the repository.
     """
-    base_url = "https://raw.githubusercontent.com/jonnycomes/survivorpy/update-refresh-logic/data_pipeline/data_last_updated.json"
-    url = f"{base_url}?nocache={int(time.time())}"  # Add a timestamp to bust cache
-    response = requests.get(url, headers={"Cache-Control": "no-cache"})
+    url = "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/data_last_updated.json?ref=update-refresh-logic"
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-        raise Exception(f"Failed to fetch data_last_updated.json from GitHub (status code {response.status_code}).")
+        raise Exception(f"GitHub API request failed (status code {response.status_code}).")
 
     try:
-        return response.json()["timestamp"]
-    except (KeyError, ValueError) as e:
-        raise Exception(f"Invalid format in data_last_updated.json: {e}")
+        content = response.json()["content"]
+        decoded = base64.b64decode(content).decode("utf-8")
+        timestamp = eval(decoded)["timestamp"]
+        return timestamp
+    except Exception as e:
+        raise Exception(f"Failed to parse GitHub API content: {e}")
 
