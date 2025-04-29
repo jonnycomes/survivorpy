@@ -2,7 +2,7 @@ import json
 import pandas as pd
 import requests
 import base64
-from .sync import _cache_table_names, _cache_data, _update_last_synced
+from .sync import _cache_table_names, _cache_data, _update_last_synced, has_cache
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
 def refresh_data():
@@ -19,7 +19,7 @@ def refresh_data():
         from survivorpy import refresh_data
         refresh_data()
     """
-    if get_last_synced() < _get_last_data_updated():
+    if not has_cache() or get_last_synced() < _get_last_data_updated():
         _cache_table_names()
         table_names = get_table_names()
         _cache_data(table_names)
