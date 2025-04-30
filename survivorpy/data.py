@@ -114,9 +114,9 @@ def _get_last_data_updated():
         Exception: If the request to GitHub fails or the data is invalid.
 
     Notes:
-        This function checks the 'data_pipeline/data_last_updated.json' file in the repository.
+        This function checks the 'data_pipeline/metadata/data_last_updated.json' file in the repository.
     """
-    url = "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/data_last_updated.json?ref=update-refresh-logic"
+    url = "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json"
     headers = {"Accept": "application/vnd.github.v3+json"}
     response = requests.get(url, headers=headers)
 
