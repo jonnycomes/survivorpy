@@ -69,7 +69,7 @@ upload_last_updated <- function(metadata, sha = NULL) {
     url,
     body = body,
     encode = "json",
-    httr::authenticate(Sys.getenv("GITHUB_USER"), Sys.getenv("GH_PAT"))
+    httr::authenticate(Sys.getenv("GITHUB_USER"), Sys.getenv("GITHUB_PAT"))
   )
 
   if (httr::status_code(resp) >= 300) {
