@@ -1,5 +1,7 @@
 {
   "hashes": {
+    "advantage_details": "c833a2373470a6d2de545b5339fdc9b37d87cab2820df448e2b5ee77a1c556c7",
+    "advantage_movement": "09619a913f26aaec42f7a40adc1a1b4f221b5c901442dff3535270e180083278",
     "auction_details": "88744da0760eb6d641a7c0c6f8177315f4ae0d7b9fd98716f01e2abcbc655996",
     "boot_mapping": "ac3740bebbea31db4da120d8d2cdce08f68339f497cb9500831bd6d263a493e0",
     "boot_order": "0e84dcd208f93d5626d6f502f7ee8345a8e2b37872e7addf9268051268b03b7d",
@@ -22,8 +24,8 @@
     "viewers": "c4f573dfb3919fcd1caee08d6ec7275a19bc72093feeab86c29d3f0e40cd2d7e",
     "vote_history": "2bc3ae6104a76361790092ee9390193de1709c22060c385ad7f9181f774aed5d"
   },
-  "timestamp": "2025-04-30T17:04:05.186Z",
-  "added": ["advantage_details", "advantage_movement"],
-  "deleted": ["advantage_details_to_delete", "advantage_movement_to_delete"],
-  "modified": {}
+  "timestamp": "2025-04-30T17:11:27.203Z",
+  "added": [],
+  "deleted": [],
+  "modified": ["advantage_details", "advantage_movement"]
 }
