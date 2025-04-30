@@ -15,7 +15,7 @@ s3_prefix_metadata <- "metadata/"
 
 # Load previous state from S3
 previous_tables <- download_s3_json("table_names.json", s3_bucket, s3_prefix_metadata)
-previous_metadata <- download_last_updated_from_github()
+previous_metadata <- download_last_updated()
 
 # Current state from survivoR
 current_table_names <- get_survivor_table_names()
@@ -27,23 +27,24 @@ common_tables <- intersect(current_table_names, previous_tables)
 
 # Process table changes
 parquet_dir <- tempdir()
-delete_tables_from_s3(deleted_tables, s3_bucket, s3_prefix_parquet)
-add_new_tables_to_s3(added_tables, parquet_dir, s3_bucket, s3_prefix_parquet)
+delete_tables(deleted_tables, s3_bucket, s3_prefix_parquet)
+add_info <- add_new_tables(added_tables, parquet_dir, s3_bucket, s3_prefix_parquet)
 mod_info <- process_common_tables(
   table_names = common_tables,
-  old_hashes = previous_metadata$hashes,
+  old_hashes = previous_metadata$metadata$hashes,
   output_dir = parquet_dir,
   bucket = s3_bucket,
   prefix = s3_prefix_parquet
 )
 
 # Update metadata and S3 if anything changed
-updated <- update_metadata_and_s3(
-  added = added_tables,
+full_hash_map <- c(add_info$hash_map, mod_info$hash_map)
+updated <- update_metadata(
+  added = add_info$added_tables,
   deleted = deleted_tables,
   modified = mod_info$modified_tables,
   current_table_names = current_table_names,
-  hash_map = mod_info$hash_map,
+  hash_map = full_hash_map,
   bucket = s3_bucket,
   prefix_metadata = s3_prefix_metadata
 )

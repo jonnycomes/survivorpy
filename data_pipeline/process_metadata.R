@@ -1,4 +1,4 @@
-# Functions for updating metadata files on S3
+# Functions for handling metadata files
 
 #' Download a JSON file from S3 and parse into R
 #' Returns an empty list if file is missing or invalid
@@ -23,21 +23,22 @@ download_s3_json <- function(filename, bucket, prefix) {
 }
 
 #' Download metadata JSON from GitHub 
-download_last_updated_from_github <- function() {
-  metadata_url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/data_last_updated.json?ref=update-refresh-logic"
+download_last_updated <- function() {
+  metadata_url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json?ref=update-refresh-logic"
   resp <- httr::GET(metadata_url)
 
   if (httr::status_code(resp) == 404) {
     warning("Metadata file not found on GitHub — starting fresh.")
-    return(list(hashes = list(), sha = NULL))
+    return(list(metadata = list(), sha = NULL))
   } else if (httr::status_code(resp) != 200) {
     stop("Failed to fetch metadata from GitHub: ", httr::content(resp, as = "text"))
   }
 
   remote <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
-  jsonlite::fromJSON(rawToChar(jsonlite::base64_dec(remote$content)))
-}
+  decoded <- jsonlite::fromJSON(rawToChar(jsonlite::base64_dec(remote$content)))
 
+  return(list(metadata = decoded, sha = remote$sha))
+}
 
 #' Upload a list or dataframe as JSON to S3
 upload_json_to_s3 <- function(data, filename, bucket, prefix) {
@@ -48,8 +49,8 @@ upload_json_to_s3 <- function(data, filename, bucket, prefix) {
 }
 
 #' Upload updated data_last_updated.json to GitHub
-upload_last_updated_to_github <- function(metadata, sha = NULL) {
-  url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/data_last_updated.json"
+upload_last_updated <- function(metadata, sha = NULL) {
+  url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json"
   new_content <- jsonlite::toJSON(metadata, auto_unbox = TRUE, pretty = TRUE)
   encoded <- jsonlite::base64_enc(charToRaw(new_content))
 
@@ -76,26 +77,32 @@ upload_last_updated_to_github <- function(metadata, sha = NULL) {
   }
 }
 
-
-
-#' Update metadata files and upload to S3
-update_metadata_and_s3 <- function(added, deleted, modified,
+#' Update and upload metadata files
+update_metadata <- function(added, deleted, modified,
                                    current_table_names, hash_map,
                                    bucket, prefix_metadata) {
   if (length(added) == 0 && length(deleted) == 0 && length(modified) == 0) {
     return(FALSE)
   }
 
-  # Upload table names to S3 (still doing this)
+  # Upload table names to S3
   upload_json_to_s3(sort(current_table_names), "table_names.json", bucket, prefix_metadata)
 
-  # Upload updated data_last_updated.json to GitHub
-  github_data <- download_last_updated_from_github()
+  # Download current GitHub metadata
+  github_data <- download_last_updated()
+
+  # Construct new metadata with more detail
   new_metadata <- list(
     hashes = hash_map,
-    last_updated = Sys.Date()
+    timestamp = format(Sys.time(), "%Y-%m-%dT%H:%M:%OS3Z", tz = "UTC"),
+    added = added,
+    deleted = deleted,
+    modified = modified
   )
-  upload_last_updated_to_github(new_metadata, github_data$sha)
+
+  # Upload updated metadata back to GitHub
+  upload_last_updated(new_metadata, github_data$sha)
 
   return(TRUE)
 }
+
