@@ -86,5 +86,6 @@ def _update_last_synced():
     """
     _CACHE_LAST_SYNCED_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(_CACHE_LAST_SYNCED_PATH, "w") as f:
-        json.dump({"timestamp": datetime.utcnow().isoformat()}, f)
+        json.dump({"timestamp": datetime.utcnow().isoformat(timespec="milliseconds") + "Z"}, f)
+
 
