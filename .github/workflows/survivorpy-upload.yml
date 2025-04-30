@@ -46,7 +46,7 @@ jobs:
       - name: Debug environment variables
         run: |
           echo "GITHUB_USER: $GITHUB_USER"
-          echo "GH_PAT: $GITHUB_PAT"
+          echo "GITHUB_PAT: $GITHUB_PAT"
 
       - name: Run R script to upload data to S3
         run: |
