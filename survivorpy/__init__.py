@@ -31,7 +31,7 @@ LAST_SYNCED = get_last_synced()
 __all__ = ["load", 
            "refresh_data", 
            "TABLE_NAMES", "get_table_names", 
-           "LAST_SYNCED", "get_last_synced", 
+           "LAST_SYNCED", "get_last_synced",
            "has_cache"
            ] + TABLE_NAMES
 
