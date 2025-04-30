@@ -24,15 +24,8 @@
     "viewers": "c4f573dfb3919fcd1caee08d6ec7275a19bc72093feeab86c29d3f0e40cd2d7e",
     "vote_history": "2bc3ae6104a76361790092ee9390193de1709c22060c385ad7f9181f774aed5d"
   },
-<<<<<<< HEAD
   "timestamp": "2025-04-30T17:44:33.132Z",
   "added": "advantage_details",
   "deleted": "advantage_details_to_delete",
   "modified": {}
-=======
-  "timestamp": "2025-04-30T18:06:56.327Z",
-  "added": {},
-  "deleted": [],
-  "modified": ["advantage_details", "advantage_movement", "auction_details", "boot_mapping", "boot_order", "castaway_details", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "journeys", "jury_votes", "screen_time", "season_palettes", "season_summary", "survivor_auction", "tribe_colours", "tribe_mapping", "viewers", "vote_history"]
->>>>>>> c39ee02c61a90d9c391c15de16c8136ff0b7b17d
 }
