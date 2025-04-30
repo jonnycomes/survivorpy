@@ -59,17 +59,17 @@ To sync your local cache with the latest data from the source (typically updated
 sv.refresh_data()
 ```
 
-You can check the last time your data was synced with:
-
-```python
-sv.LAST_SYNCED
-# e.g., '2025-04-25T18:42:07.235Z'
-```
-
 To see a summary of what changed during the update (e.g., which tables were modified), pass `verbose=True`:
 
 ```python
 sv.refresh_data(verbose=True)
+```
+
+If you just want to see the last time your data was synced, use the `LAST_SYNCED` constant:
+
+```python
+sv.LAST_SYNCED
+# e.g., '2025-04-25T18:42:07.235Z'
 ```
 
 ## Data Source and Attribution
