@@ -5,7 +5,7 @@ import base64
 from .sync import _cache_table_names, _cache_data, _update_last_synced, has_cache
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
-def refresh_data():
+def refresh_data(verbose=False):
     """
     Refresh the local data cache by downloading the latest available datasets from the source.
 
@@ -15,17 +15,48 @@ def refresh_data():
     After calling this function, you can access updated datasets using `load("table_name")` 
     or module-level attributes like `survivorpy.castaways`.
 
+    Args:
+        verbose (bool): If True, prints a summary of what changed during the refresh.
+
     Example:
         from survivorpy import refresh_data
-        refresh_data()
+        refresh_data(verbose=True)
     """
-    if not has_cache() or get_last_synced() < _get_last_data_updated():
+    update_info = _get_data_update_info()
+    last_updated_remote = update_info["timestamp"]
+    last_synced_local = get_last_synced()
+    if verbose:
+        print(f"Local data cache was last synced on:  {last_synced_local}")
+        print(f"Latest available data was updated on: {last_updated_remote}")
+
+    if not has_cache() or last_synced_local < last_updated_remote:
+
         _cache_table_names()
         table_names = get_table_names()
         _cache_data(table_names)
         _update_last_synced()
+
+        if verbose:
+            changes = []
+            if update_info.get("added"):
+                changes.append(f"Tables added:    {update_info['added']}")
+            if update_info.get("modified"):
+                changes.append(f"Tables modified: {update_info['modified']}")
+            if update_info.get("deleted"):
+                changes.append(f"Tables deleted:  {update_info['deleted']}")
+
+            if changes:
+                print("Summary of changes:")
+                for line in changes:
+                    print(f"    - {line}")
+            else:
+                print("No changes detected in the data.")
     else:
-        print("Data is already up to date. No refresh needed.")
+        if verbose:
+            print("Local data cache is already up to date.")
+
+
+
 
 def load(table: str) -> pd.DataFrame:
     """
@@ -103,18 +134,15 @@ def get_last_synced():
     with open(_CACHE_LAST_SYNCED_PATH, "r") as f:
         return json.load(f)["timestamp"]
 
-def _get_last_data_updated():
+def _get_data_update_info():
     """
-    Return the timestamp of the last data update recorded in the GitHub repository.
+    Fetch metadata about the most recent data update from GitHub.
 
     Returns:
-        str: An ISO 8601 timestamp string (e.g., "2025-04-25T19:12:05.123Z").
+        dict: A dictionary with keys 'added', 'deleted', 'modified', and 'timestamp'.
 
     Raises:
-        Exception: If the request to GitHub fails or the data is invalid.
-
-    Notes:
-        This function checks the 'data_pipeline/metadata/data_last_updated.json' file in the repository.
+        Exception: If the GitHub API request fails or the content can't be parsed.
     """
     url = "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json"
     headers = {"Accept": "application/vnd.github.v3+json"}
@@ -126,8 +154,8 @@ def _get_last_data_updated():
     try:
         content = response.json()["content"]
         decoded = base64.b64decode(content).decode("utf-8")
-        timestamp = eval(decoded)["timestamp"]
-        return timestamp
+        full_data = eval(decoded)
+        return {k: v for k, v in full_data.items() if k != "hashes"}
     except Exception as e:
         raise Exception(f"Failed to parse GitHub API content: {e}")
 
