@@ -1,1 +1,28 @@
-{"timestamp": "2025-05-30T00:04:50.444496"}
+{
+  "hashes": {
+    "advantage_details": "c833a2373470a6d2de545b5339fdc9b37d87cab2820df448e2b5ee77a1c556c7",
+    "advantage_movement": "09619a913f26aaec42f7a40adc1a1b4f221b5c901442dff3535270e180083278",
+    "auction_details": "88744da0760eb6d641a7c0c6f8177315f4ae0d7b9fd98716f01e2abcbc655996",
+    "boot_mapping": "ac3740bebbea31db4da120d8d2cdce08f68339f497cb9500831bd6d263a493e0",
+    "boot_order": "0e84dcd208f93d5626d6f502f7ee8345a8e2b37872e7addf9268051268b03b7d",
+    "castaway_details": "dff742280e6f008667ddf150b4aec338920ebbc29591957e8816bf3afe3404a4",
+    "castaway_scores": "994074c57be712b9a1da4f97cffd5c7b90e8e638ee1a0ab5ab83b46321fa4ede",
+    "castaways": "5e6563c15cd9bea03492c6c2b81fd7f70aeb91f959d47b4379b31fa86ce3b24e",
+    "challenge_description": "e48a378885401cb7b3ee834b914062b582859604ca10816de6a0496e5b651c06",
+    "challenge_results": "74a927b0ae04ed86f3dc8932645739d682d8f342f77dd94801b1375060566a6b",
+    "challenge_summary": "02c4e61ede34f42148f96726584545f852e1fc3793ce82ca9dba694ccbd9ef77",
+    "confessionals": "375c0efd66ab8f0835203ee2fb29b3b9640643ffc5d312fa97d57638a3b7ad00",
+    "episodes": "3318e9c648abb05b160ef1d39788a0089c531d3c62927884ff1342ebe03d0055",
+    "journeys": "00ad18845083a84a0012891d215bddde43ea18c85cc828b1969c2b046a734947",
+    "jury_votes": "172c73a1faa7813f5c1068487e89dd1b5475de500bfbb4e576da84608135637d",
+    "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
+    "season_palettes": "978ba5e17e87ba57d06367d3149a31984dbd50d820d06c9bbb853b59a57a37c5",
+    "season_summary": "26db1bd3c09f86df501fecccae77f79f675901ca064dfbfd5663d55f978a0c02",
+    "survivor_auction": "cfd3960acb8d0269cd793bcb940d3914b292ea36baa0b0b9d61edafea12b5bc0",
+    "tribe_colours": "bd7f38f37fff0218909d521685b1f395ec5368166658043649fe3bd361ae67ed",
+    "tribe_mapping": "c7ad50a816b7b6486bf861b16077acb22a9c311b0248c81123ab838cc9b08b11",
+    "viewers": "c4f573dfb3919fcd1caee08d6ec7275a19bc72093feeab86c29d3f0e40cd2d7e",
+    "vote_history": "2bc3ae6104a76361790092ee9390193de1709c22060c385ad7f9181f774aed5d"
+  },
+  "last_updated": "2025-04-30"
+}
