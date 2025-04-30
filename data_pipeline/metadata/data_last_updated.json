@@ -24,8 +24,8 @@
     "viewers": "c4f573dfb3919fcd1caee08d6ec7275a19bc72093feeab86c29d3f0e40cd2d7e",
     "vote_history": "2bc3ae6104a76361790092ee9390193de1709c22060c385ad7f9181f774aed5d"
   },
-  "timestamp": "2025-04-30T17:44:33.132Z",
+  "timestamp": "2025-04-30T20:12:25.538Z",
   "added": "advantage_details",
-  "deleted": "advantage_details_to_delete",
+  "deleted": "test_table_to_delete",
   "modified": {}
 }
