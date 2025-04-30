@@ -9,6 +9,13 @@ jobs:
   upload_to_s3:
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
+      GITHUB_USER: ${{ secrets.GH_USER }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -35,19 +42,12 @@ jobs:
           echo 'R_LIBS_USER="~/.R/library"' >> ~/.Renviron
           Rscript -e 'install.packages(c("aws.s3", "jsonlite", "remotes", "arrow", "digest"), repos="https://cloud.r-project.org", lib="~/.R/library")'
           Rscript -e 'remotes::install_github("doehm/survivoR", lib="~/.R/library")'
-        env:
-          GITHUB_PAT: ${{ secrets.GH_PAT }}
-          GITHUB_USER: ${{ secrets.GH_USER }}
 
       - name: Debug environment variables
         run: |
           echo "GITHUB_USER: $GITHUB_USER"
-          echo "GH_PAT: $GH_PAT"
+          echo "GH_PAT: $GITHUB_PAT"
 
       - name: Run R script to upload data to S3
         run: |
           Rscript -e '.libPaths("~/.R/library"); source("data_pipeline/run_pipeline.R")'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
