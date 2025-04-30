@@ -1,13 +1,15 @@
 import json
 import pandas as pd
-from .sync import _cache_table_names, _cache_data, _update_last_synced
+import requests
+import base64
+from .sync import _cache_table_names, _cache_data, _update_last_synced, has_cache
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
 def refresh_data():
     """
     Refresh the local data cache by downloading the latest available datasets from the source.
 
-    This function updates all Survivor datasets and the list of available table names. 
+    This function updates all Survivor datasets and the list of available table names.
     It should be used when you want to ensure you have the most current version of the data.
 
     After calling this function, you can access updated datasets using `load("table_name")` 
@@ -17,10 +19,13 @@ def refresh_data():
         from survivorpy import refresh_data
         refresh_data()
     """
-    _cache_table_names()
-    table_names = get_table_names()
-    _cache_data(table_names)
-    _update_last_synced()
+    if not has_cache() or get_last_synced() < _get_last_data_updated():
+        _cache_table_names()
+        table_names = get_table_names()
+        _cache_data(table_names)
+        _update_last_synced()
+    else:
+        print("Data is already up to date. No refresh needed.")
 
 def load(table: str) -> pd.DataFrame:
     """
@@ -98,4 +103,31 @@ def get_last_synced():
     with open(_CACHE_LAST_SYNCED_PATH, "r") as f:
         return json.load(f)["timestamp"]
 
+def _get_last_data_updated():
+    """
+    Return the timestamp of the last data update recorded in the GitHub repository.
+
+    Returns:
+        str: An ISO 8601 timestamp string (e.g., "2025-04-25T19:12:05.123Z").
+
+    Raises:
+        Exception: If the request to GitHub fails or the data is invalid.
+
+    Notes:
+        This function checks the 'data_pipeline/metadata/data_last_updated.json' file in the repository.
+    """
+    url = "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json"
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        raise Exception(f"GitHub API request failed (status code {response.status_code}).")
+
+    try:
+        content = response.json()["content"]
+        decoded = base64.b64decode(content).decode("utf-8")
+        timestamp = eval(decoded)["timestamp"]
+        return timestamp
+    except Exception as e:
+        raise Exception(f"Failed to parse GitHub API content: {e}")
 

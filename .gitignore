@@ -146,4 +146,6 @@ sandbox/
 # macOS Finder metadata files
 .DS_Store
 
+# Local R environment variables
+.Renviron
 
