@@ -39,6 +39,11 @@ jobs:
           GITHUB_PAT: ${{ secrets.GH_PAT }}
           GITHUB_USER: ${{ secrets.GH_USER }}
 
+      - name: Debug environment variables
+        run: |
+          echo "GITHUB_USER: $GITHUB_USER"
+          echo "GH_PAT: $GH_PAT"
+
       - name: Run R script to upload data to S3
         run: |
           Rscript -e '.libPaths("~/.R/library"); source("data_pipeline/run_pipeline.R")'
