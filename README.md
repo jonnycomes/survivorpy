@@ -66,7 +66,7 @@ sv.LAST_SYNCED
 # e.g., '2025-04-25T18:42:07.235Z'
 ```
 
-To see a summary of what changed during the update (e.g., which tables were modified), pass 'verbose=True':
+To see a summary of what changed during the update (e.g., which tables were modified), pass `verbose=True`:
 
 ```python
 sv.refresh_data(verbose=True)
