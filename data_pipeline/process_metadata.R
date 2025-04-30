@@ -24,7 +24,7 @@ download_s3_json <- function(filename, bucket, prefix) {
 
 #' Download metadata JSON from GitHub 
 download_last_updated <- function() {
-  metadata_url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json?ref=update-refresh-logic"
+  metadata_url <- "https://api.github.com/repos/jonnycomes/survivorpy/contents/data_pipeline/metadata/data_last_updated.json"
   resp <- httr::GET(metadata_url)
 
   if (httr::status_code(resp) == 404) {
@@ -58,7 +58,7 @@ upload_last_updated <- function(metadata, sha = NULL) {
   body <- list(
     message = paste("Update data_last_updated.json", Sys.Date()),
     content = encoded,
-    branch = "update-refresh-logic"
+    branch = "main"
   )
 
   if (!is.null(sha)) {
