@@ -59,7 +59,7 @@ To sync your local cache with the latest data from the source (typically updated
 sv.refresh_data()
 ```
 
-To see a summary of what changed during the update (e.g., which tables were modified), pass `verbose=True`:
+To see a summary of what changed during the update (e.g. which tables were modified), pass `verbose=True`:
 
 ```python
 sv.refresh_data(verbose=True)
