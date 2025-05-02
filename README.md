@@ -65,7 +65,7 @@ To see a summary of what changed during the update (e.g. which tables were modif
 sv.refresh_data(verbose=True)
 ```
 
-If you just want to see the last time your data was synced, use the `LAST_SYNCED` constant:
+If you just want to see the last time your data was synced, use the `LAST_SYNCED` constant to get a UTC timestamp:
 
 ```python
 sv.LAST_SYNCED
