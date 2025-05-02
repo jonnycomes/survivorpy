@@ -1,12 +1,7 @@
 variable "aws_region" {
   description = "AWS region where infrastructure is deployed"
   type        = string
-  default     = "us-west-2"  # Update if your S3 bucket is in a different region
-}
-
-variable "bucket_name" {
-  description = "Name of the existing S3 bucket to be used for data storage"
-  type        = string
+  default     = "us-west-2"  # Update if your DynamoDB table is in a different region
 }
 
 variable "lambda_function_name" {
@@ -31,4 +26,9 @@ variable "lambda_filename" {
   description = "Path to the ZIP file containing the Lambda code"
   type        = string
   default     = "lambda.zip"
+}
+
+variable "bucket_name" {
+  description = "Name of the existing S3 bucket to be used for data storage"
+  type        = string
 }

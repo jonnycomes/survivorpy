@@ -1,35 +1,41 @@
 import boto3
 import os
-from datetime import datetime, timedelta
+import time
 
-s3 = boto3.client('s3')
-BUCKET = os.environ['S3_BUCKET']
+dynamodb = boto3.resource("dynamodb")
+table = dynamodb.Table("rate-limit")
+
+DAILY_LIMIT = 10  # or 20
 
 def handler(event, context):
-    ip_address = event['requestContext']['identity']['sourceIp']
+    ip = event["requestContext"]["identity"]["sourceIp"]
+    now = int(time.time())
 
-    key = f"rate-limiting/{ip_address}.json"
+    response = table.get_item(Key={"ip_address": ip})
+    item = response.get("Item", {})
 
-    # Try to get the existing data
-    try:
-        response = s3.get_object(Bucket=BUCKET, Key=key)
-        data = response['Body'].read().decode('utf-8')
-        count = int(data)
-    except s3.exceptions.NoSuchKey:
+    count = item.get("count", 0)
+    last_reset = item.get("last_reset", now)
+
+    # If it's been more than 24 hours, reset count
+    if now - last_reset > 86400:
         count = 0
+        last_reset = now
 
-    # Simple rate limit: allow up to 5 pings
-    if count >= 5:
+    if count >= DAILY_LIMIT:
         return {
             "statusCode": 429,
-            "body": "Too Many Requests"
+            "body": "Rate limit exceeded. Try again tomorrow."
         }
 
-    # Update the count in S3
-    new_count = count + 1
-    s3.put_object(Bucket=BUCKET, Key=key, Body=str(new_count))
+    # Update count
+    table.put_item(Item={
+        "ip_address": ip,
+        "count": count + 1,
+        "last_reset": last_reset
+    })
 
     return {
         "statusCode": 200,
-        "body": f"Hello from Lambda! Ping #{new_count} from {ip_address}"
+        "body": f"Hello from Lambda! Ping #{count + 1} from {ip}"
     }

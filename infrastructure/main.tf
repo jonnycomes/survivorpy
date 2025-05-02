@@ -1,6 +1,27 @@
-data "aws_s3_bucket" "existing_bucket" {
-  bucket = var.bucket_name
+data "aws_caller_identity" "current" {}
+
+resource "aws_dynamodb_table" "rate_limit" {
+  name           = "rate-limit"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "ip_address"
+  
+  attribute {
+    name = "ip_address"
+    type = "S"
+  }
+
+  attribute {
+    name = "last_reset"
+    type = "N"
+  }
+
+  global_secondary_index {
+    name               = "last_reset-index"
+    hash_key           = "last_reset"
+    projection_type    = "ALL"
+  }
 }
+
 
 resource "aws_iam_role" "lambda_execution_role" {
   name = "lambda_execution_role"
@@ -32,7 +53,8 @@ resource "aws_lambda_function" "rate_limit_function" {
 
   environment {
     variables = {
-      S3_BUCKET = data.aws_s3_bucket.existing_bucket.bucket
+      DYNAMODB_TABLE = aws_dynamodb_table.rate_limit.name
+      S3_BUCKET = var.bucket_name
     }
   }
 
@@ -41,8 +63,8 @@ resource "aws_lambda_function" "rate_limit_function" {
   ]
 }
 
-resource "aws_iam_role_policy" "lambda_s3_access" {
-  name = "lambda_s3_policy"
+resource "aws_iam_role_policy" "lambda_dynamodb_access" {
+  name = "lambda_dynamodb_policy"
   role = aws_iam_role.lambda_execution_role.id
 
   policy = jsonencode({
@@ -51,17 +73,29 @@ resource "aws_iam_role_policy" "lambda_s3_access" {
       {
         Effect = "Allow",
         Action = [
-          "s3:GetObject",
-          "s3:PutObject"
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:UpdateItem"
         ],
-        Resource = "arn:aws:s3:::${var.bucket_name}/*"
+        Resource = aws_dynamodb_table.rate_limit.arn
       },
       {
         Effect = "Allow",
-        Action = "s3:ListBucket",
-        Resource = "arn:aws:s3:::${var.bucket_name}"
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject"
+        ],
+        Resource = "arn:aws:s3:::survivorpy-data/rate-limiting/*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "s3:ListBucket"
+        ],
+        Resource = "arn:aws:s3:::survivorpy-data"
       }
     ]
   })
 }
+
 
