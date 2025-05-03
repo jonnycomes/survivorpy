@@ -45,11 +45,12 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
 }
 
 resource "aws_lambda_function" "rate_limit_function" {
-  function_name = var.lambda_function_name
-  role          = aws_iam_role.lambda_execution_role.arn
-  handler       = var.lambda_handler
-  runtime       = var.lambda_runtime
-  filename      = var.lambda_filename
+  function_name    = var.lambda_function_name
+  role             = aws_iam_role.lambda_execution_role.arn
+  handler          = var.lambda_handler
+  runtime          = var.lambda_runtime
+  filename         = var.lambda_filename
+  source_code_hash = filebase64sha256(var.lambda_filename)
 
   environment {
     variables = {
