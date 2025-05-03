@@ -1,5 +1,4 @@
-data "aws_caller_identity" "current" {}
-
+# DynamoDB table for rate limiting
 resource "aws_dynamodb_table" "rate_limit" {
   name           = "rate-limit"
   billing_mode   = "PAY_PER_REQUEST"
@@ -22,7 +21,7 @@ resource "aws_dynamodb_table" "rate_limit" {
   }
 }
 
-
+# IAM role for Lambda function execution
 resource "aws_iam_role" "lambda_execution_role" {
   name = "lambda_execution_role"
 
@@ -39,11 +38,13 @@ resource "aws_iam_role" "lambda_execution_role" {
   })
 }
 
+# IAM role policy attachment for basic Lambda execution
 resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
   role       = aws_iam_role.lambda_execution_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+# Lambda function to handle rate limiting
 resource "aws_lambda_function" "rate_limit_function" {
   function_name    = var.lambda_function_name
   role             = aws_iam_role.lambda_execution_role.arn
@@ -64,6 +65,7 @@ resource "aws_lambda_function" "rate_limit_function" {
   ]
 }
 
+# Lambda function permissions to access DynamoDB
 resource "aws_iam_role_policy" "lambda_dynamodb_access" {
   name = "lambda_dynamodb_policy"
   role = aws_iam_role.lambda_execution_role.id
@@ -99,4 +101,41 @@ resource "aws_iam_role_policy" "lambda_dynamodb_access" {
   })
 }
 
+# API Gateway to expose Lambda function
+resource "aws_apigatewayv2_api" "rate_limit_api" {
+  name          = "rate-limit-api"
+  protocol_type = "HTTP"
+}
+
+# API Gateway route to invoke Lambda function
+resource "aws_apigatewayv2_integration" "rate_limit_integration" {
+  api_id             = aws_apigatewayv2_api.rate_limit_api.id
+  integration_type   = "AWS_PROXY"
+  integration_uri    = aws_lambda_function.rate_limit_function.arn
+  integration_method = "POST"
+}
+
+# API Gateway route (POST method)
+resource "aws_apigatewayv2_route" "rate_limit_route" {
+  api_id    = aws_apigatewayv2_api.rate_limit_api.id
+  route_key = "POST /rate-limit"
+  target    = "integrations/${aws_apigatewayv2_integration.rate_limit_integration.id}"
+}
+
+# Deploy API Gateway
+resource "aws_apigatewayv2_deployment" "rate_limit_deployment" {
+  api_id = aws_apigatewayv2_api.rate_limit_api.id
+
+  depends_on = [
+    aws_apigatewayv2_route.rate_limit_route,
+    aws_apigatewayv2_integration.rate_limit_integration
+  ]
+}
+
+# Create a stage for the API
+resource "aws_apigatewayv2_stage" "rate_limit_stage" {
+  api_id        = aws_apigatewayv2_api.rate_limit_api.id
+  name          = "prod"
+  deployment_id = aws_apigatewayv2_deployment.rate_limit_deployment.id
+}
 
