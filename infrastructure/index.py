@@ -10,7 +10,14 @@ DAILY_LIMIT = 10
 SEC_PER_DAY = 60 * 60 * 24
 
 def handler(event, context):
-    ip = event["requestContext"]["http"]["sourceIp"]
+    try:
+        ip = event["requestContext"]["identity"]["sourceIp"]
+    except KeyError:
+        return {
+            "statusCode": 400,
+            "body": json.dumps({"error": "sourceIp not found in request"})
+        }
+
     now = int(time.time())
 
     try:
@@ -18,10 +25,10 @@ def handler(event, context):
         item = response.get("Item", {})
 
         count = item.get("count", 0)
-        last_reset = item.get("last_reset", now)
+        last_reset = item.get("last_reset")
 
         # If it's been more than 24 hours, reset count
-        if now - last_reset > SEC_PER_DAY:
+        if last_reset is None or now - last_reset > SEC_PER_DAY:
             count = 0
             last_reset = now
 
