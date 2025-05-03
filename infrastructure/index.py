@@ -23,6 +23,7 @@ def handler(event, context):
         count = 0
         last_reset = now
 
+    # Handle exceeding rate limit
     if count >= DAILY_LIMIT:
         return {
             "statusCode": 429,
