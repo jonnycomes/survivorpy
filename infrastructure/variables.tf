@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region where infrastructure is deployed"
   type        = string
-  default     = "us-west-2"  # Update if your DynamoDB table is in a different region
+  default     = "us-west-2"
 }
 
 variable "lambda_function_name" {
