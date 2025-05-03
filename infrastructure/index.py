@@ -5,7 +5,8 @@ import time
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("rate-limit")
 
-DAILY_LIMIT = 10  # or 20
+DAILY_LIMIT = 10
+SEC_PER_DAY = 60*60*24
 
 def handler(event, context):
     ip = event["requestContext"]["identity"]["sourceIp"]
@@ -18,7 +19,7 @@ def handler(event, context):
     last_reset = item.get("last_reset", now)
 
     # If it's been more than 24 hours, reset count
-    if now - last_reset > 86400:
+    if now - last_reset > SEC_PER_DAY:
         count = 0
         last_reset = now
 
