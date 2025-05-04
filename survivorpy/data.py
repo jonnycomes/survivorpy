@@ -2,7 +2,7 @@ import json
 import pandas as pd
 import requests
 import base64
-from .sync import _cache_table_names, _cache_data, _update_last_synced, has_cache
+from .sync import _cache_data_from_api, _update_last_synced, _has_cache
 from .config import _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
 def refresh_data(verbose=False):
@@ -29,11 +29,9 @@ def refresh_data(verbose=False):
         print(f"Local data cache was last synced on:  {last_synced_local}")
         print(f"Latest available data was updated on: {last_updated_remote}")
 
-    if not has_cache() or last_synced_local < last_updated_remote:
+    if not _has_cache() or last_synced_local < last_updated_remote:
 
-        _cache_table_names()
-        table_names = get_table_names()
-        _cache_data(table_names)
+        _cache_data_from_api()
         _update_last_synced()
 
         if verbose:

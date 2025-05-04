@@ -85,10 +85,9 @@ resource "aws_iam_role_policy" "lambda_dynamodb_access" {
       {
         Effect = "Allow",
         Action = [
-          "s3:GetObject",
-          "s3:PutObject"
+          "s3:GetObject"
         ],
-        Resource = "arn:aws:s3:::survivorpy-data/rate-limiting/*"
+        Resource = "arn:aws:s3:::survivorpy-data/survivor_data.zip"
       },
       {
         Effect = "Allow",

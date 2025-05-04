@@ -1,11 +1,12 @@
-import boto3
 import json
-import pandas as pd
+import requests
+import zipfile
+import base64
 from io import BytesIO
 from datetime import datetime
-from .config import _CACHE_DIR, _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH, _S3_BUCKET, _S3_TABLE_NAMES_KEY
+from .config import _RATE_LIMITED_API_URL, _CACHE_DIR, _CACHE_DATA_DIR, _CACHE_TABLE_NAMES_PATH, _CACHE_LAST_SYNCED_PATH
 
-def has_cache():
+def _has_cache():
     """
     Checks if the cache is properly set up by ensuring that the cache
     directory and its necessary files and subdirectories exist and are non-empty.
@@ -33,47 +34,6 @@ def has_cache():
 
     return True
 
-def _cache_data(table_names):
-    """
-    Download datasets from the source and store them in the local cache.
-
-    For each table name in the list, this function fetches the corresponding dataset 
-    from the source and saves it as a Parquet file in the local cache directory. 
-    Overwrites any existing files with the same name.
-
-    Parameters:
-        table_names (list[str]): A list of table names to download.
-
-    Raises:
-        Exception: If any download or file operation fails.
-    """
-    _CACHE_DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-    for table in table_names:
-        local_path = _CACHE_DATA_DIR / f"{table}.parquet"
-        s3 = boto3.client('s3')
-        s3_key = f"tables/{table}.parquet"
-        response = s3.get_object(Bucket=_S3_BUCKET, Key=s3_key)
-
-        # Read the data from the response
-        parquet_data = response['Body'].read()
-        df = pd.read_parquet(BytesIO(parquet_data))
-
-        # Save the data locally
-        df.to_parquet(local_path)
-
-def _cache_table_names():
-    """
-    Downloads the metadata file containing available table names from the source
-    and stores it in the local cache. This function creates or overwrites a local 
-    JSON file in the cache directory.
-
-    This file is used to support the `TABLE_NAMES` attribute in the public API.
-    """
-    _CACHE_TABLE_NAMES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    s3 = boto3.client("s3")
-    s3.download_file(_S3_BUCKET, _S3_TABLE_NAMES_KEY, _CACHE_TABLE_NAMES_PATH)
-
 def _update_last_synced():
     """
     Record the current UTC time as the last successful data sync.
@@ -87,5 +47,36 @@ def _update_last_synced():
     _CACHE_LAST_SYNCED_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(_CACHE_LAST_SYNCED_PATH, "w") as f:
         json.dump({"timestamp": datetime.utcnow().isoformat(timespec="milliseconds") + "Z"}, f)
+
+def _cache_data_from_api():
+    """
+    Fetches a zip file of Parquet tables from the remote API,
+    enforcing rate limiting. Extracts each Parquet file into the local cache 
+    directory and saves the list of table names as JSON metadata.
+
+    Raises:
+        Exception: If the API call fails or the rate limit is exceeded.
+    """
+    _CACHE_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    _CACHE_TABLE_NAMES_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    response = requests.post(_RATE_LIMITED_API_URL)
+
+    if response.status_code == 429: 
+        raise Exception(response.json()["message"])
+    if response.status_code != 200:
+        raise Exception(f"API call failed with status code {response.status_code}")
+
+    zip_content = base64.b64decode(response.text) 
+
+    with zipfile.ZipFile(BytesIO(zip_content), "r") as zip_file:
+        # Cache parquet files from the zip archive
+        zip_file.extractall(_CACHE_DATA_DIR)
+
+        # Cache table names
+        table_names = [name.replace(".parquet", "") for name in zip_file.namelist()]
+        with open(_CACHE_TABLE_NAMES_PATH, "w") as f:
+            json.dump(table_names, f)
+
 
 
