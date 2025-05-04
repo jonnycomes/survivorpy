@@ -46,3 +46,12 @@ jobs:
       - name: Run R script to upload data to S3
         run: |
           Rscript -e '.libPaths("~/.R/library"); source("data_pipeline/run_pipeline.R")'
+
+      - name: Zip parquet files and upload archive to S3
+        run: |
+          mkdir -p zipped_data
+          aws s3 cp s3://survivorpy-data/tables/ ./zipped_data/ --recursive --exclude "*" --include "*.parquet"
+          cd zipped_data
+          zip survivor_data.zip *.parquet
+          aws s3 cp survivor_data.zip s3://survivorpy-data/survivor_data.zip
+
