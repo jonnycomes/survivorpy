@@ -5,7 +5,7 @@ seasons, episodes, votes, and other related content, all through Python and in t
 form of `pandas` DataFrames.
 
 Key Features:
-- Seamless integration with the R package 'survivoR', providing up-to-date data (with no more than a one-week delay).
+- Seamless integration with the R package 'survivoR', providing up-to-date data (with no more than a 24 hour delay).
 - Direct access to *Survivor* data tables via the `load()` function or direct table imports.
 - Efficient caching mechanism that allows for offline access to tables while syncing data with the source.
 - Includes attributes like `TABLE_NAMES` for listing available data tables and `LAST_SYNCED` for tracking data synchronization.
