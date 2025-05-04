@@ -30,10 +30,8 @@ def refresh_data(verbose=False):
         print(f"Latest available data was updated on: {last_updated_remote}")
 
     if not _has_cache() or last_synced_local < last_updated_remote:
-
         _cache_data_from_api()
         _update_last_synced()
-
         if verbose:
             changes = []
             if update_info.get("added"):
@@ -52,9 +50,6 @@ def refresh_data(verbose=False):
     else:
         if verbose:
             print("Local data cache is already up to date.")
-
-
-
 
 def load(table: str) -> pd.DataFrame:
     """
