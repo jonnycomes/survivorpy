@@ -24,12 +24,15 @@ def refresh_data(verbose=False):
     """
     update_info = _get_data_update_info()
     last_updated_remote = update_info["timestamp"]
-    last_synced_local = get_last_synced()
+    has_cache = _has_cache()
+    if has_cache:
+        last_synced_local = get_last_synced()
     if verbose:
-        print(f"Local data cache was last synced on:  {last_synced_local}")
+        if has_cache:
+            print(f"Local data cache was last synced on:  {last_synced_local}")
         print(f"Latest available data was updated on: {last_updated_remote}")
 
-    if not _has_cache() or last_synced_local < last_updated_remote:
+    if not has_cache or (last_synced_local < last_updated_remote):
         _cache_data_from_api()
         _update_last_synced()
         if verbose:
