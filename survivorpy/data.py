@@ -45,7 +45,7 @@ def refresh_data(verbose=False):
                 changes.append(f"Tables deleted:  {update_info['deleted']}")
 
             if changes:
-                print("Summary of changes:")
+                print("Summary of changes from most recent update:")
                 for line in changes:
                     print(f"    - {line}")
             else:
