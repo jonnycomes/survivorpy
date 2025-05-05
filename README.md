@@ -52,8 +52,8 @@ No matter which method you choose, you’ll get rich Survivor data, neatly packa
 
 ### Keeping data up to date
 
-`survivorpy` caches each table on first import, so loading the data—whether by `load()` or direct import—is fast and works offline.
-To sync your local cache with the latest data from the source (typically updated daily to match the R package `survivoR`), use:
+On first import, `survivorpy` fetches and caches all the tables locally, which might feel a bit slow. The upside is that after this initial step, loading data—whether via `load()` or by importing tables directly—is fast and works offline.  
+To update your local cache with the latest data from the source (typically updated daily to match the R package [`survivoR`](https://github.com/doehm/survivoR)), use:
 
 ```python
 sv.refresh_data()
