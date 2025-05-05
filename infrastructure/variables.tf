@@ -25,7 +25,7 @@ variable "lambda_handler" {
 variable "lambda_filename" {
   description = "Path to the ZIP file containing the Lambda code"
   type        = string
-  default     = "lambda.zip"
+  default     = "lambda/lambda.zip"
 }
 
 variable "bucket_name" {
