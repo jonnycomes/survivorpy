@@ -2,7 +2,7 @@
 
 SurvivorPy is a Python wrapper of the data from the R package [survivoR](https://github.com/doehm/survivoR). It enables Python coders easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality show *Survivor*—directly from Python, using familiar `pandas` dataframes.
 
-SurvivorPy syncs its data with survivoR on a weekly basis, ensuring the data reflects recent updates to the survivoR package.
+SurvivorPy syncs its data with survivoR on a daily basis, ensuring the data reflects recent updates to the survivoR package.
 
 ## Installation
 
@@ -53,7 +53,7 @@ No matter which method you choose, you’ll get rich Survivor data, neatly packa
 ### Keeping data up to date
 
 `survivorpy` caches each table on first import, so loading the data—whether by `load()` or direct import—is fast and works offline.
-To sync your local cache with the latest data from the source (typically updated weekly to match the R package `survivoR`), use:
+To sync your local cache with the latest data from the source (typically updated daily to match the R package `survivoR`), use:
 
 ```python
 sv.refresh_data()
@@ -65,7 +65,7 @@ To see a summary of what changed during the update (e.g. which tables were modif
 sv.refresh_data(verbose=True)
 ```
 
-If you just want to see the last time your data was synced, use the `LAST_SYNCED` constant:
+If you just want to see the last time your data was synced, use the `LAST_SYNCED` constant to get a UTC timestamp:
 
 ```python
 sv.LAST_SYNCED

@@ -149,3 +149,12 @@ sandbox/
 # Local R environment variables
 .Renviron
 
+# Terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Lambda build artifacts
+lambda.zip
+

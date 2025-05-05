@@ -5,7 +5,7 @@ seasons, episodes, votes, and other related content, all through Python and in t
 form of `pandas` DataFrames.
 
 Key Features:
-- Seamless integration with the R package 'survivoR', providing up-to-date data (with no more than a one-week delay).
+- Seamless integration with the R package 'survivoR', providing up-to-date data (with no more than a 24 hour delay).
 - Direct access to *Survivor* data tables via the `load()` function or direct table imports.
 - Efficient caching mechanism that allows for offline access to tables while syncing data with the source.
 - Includes attributes like `TABLE_NAMES` for listing available data tables and `LAST_SYNCED` for tracking data synchronization.
@@ -17,10 +17,10 @@ This module provides an easy and efficient way to interact with detailed *Surviv
 """
 
 from .data import load, refresh_data, get_table_names, get_last_synced
-from .sync import has_cache
+from .sync import _has_cache
 
 # Refresh the data if cache is not set up
-if not has_cache():
+if not _has_cache():
     refresh_data()
 
 # Fetch key attributes for module access
@@ -31,8 +31,7 @@ LAST_SYNCED = get_last_synced()
 __all__ = ["load", 
            "refresh_data", 
            "TABLE_NAMES", "get_table_names", 
-           "LAST_SYNCED", "get_last_synced",
-           "has_cache"
+           "LAST_SYNCED", "get_last_synced"
            ] + TABLE_NAMES
 
 def __getattr__(name):
