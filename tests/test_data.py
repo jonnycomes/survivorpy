@@ -66,7 +66,7 @@ def test_refresh_data_when_no_cache_triggers_download(
 
     data.refresh_data(verbose=True)
     captured = capsys.readouterr()
-    assert "Local data cache was last synced on" in captured.out
+    assert "Latest available data was updated on" in captured.out
     assert mock_cache.called
     assert mock_update.called
 
