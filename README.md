@@ -6,7 +6,7 @@ SurvivorPy syncs its data with survivoR on a daily basis, ensuring the data refl
 
 ## Installation
 
-Coming soon — the package will be pip installable.
+You can install SurvivorPy from PyPI:
 
 ```bash
 pip install survivorpy
