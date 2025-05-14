@@ -1,11 +1,11 @@
 # SurvivorPy
 
 [![PyPI Version](https://img.shields.io/pypi/v/survivorpy.svg)](https://pypi.org/project/survivorpy/)
-[![PyPI Downloads](https://static.pepy.tech/badge/survivorpy)](https://pepy.tech/projects/survivorpy)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)](https://pypi.org/project/survivorpy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jonnycomes/survivorpy/survivorpy-tests.yml?branch=main)](https://github.com/jonnycomes/survivorpy/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/jonnycomes/survivorpy.svg)](https://github.com/jonnycomes/survivorpy/commits/main)
+[![PyPI Downloads](https://static.pepy.tech/badge/survivorpy)](https://pepy.tech/projects/survivorpy)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)](https://pypi.org/project/survivorpy/)
 
 
 SurvivorPy is a Python wrapper of the data from the R package [survivoR](https://github.com/doehm/survivoR). It enables Python coders easy access to clean, structured data on contestants, seasons, episodes, votes, and more from the reality show *Survivor*—directly from Python, using familiar `pandas` dataframes.
