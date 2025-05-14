@@ -2,7 +2,7 @@
 
 [![PyPI Downloads](https://static.pepy.tech/badge/survivorpy)](https://pepy.tech/projects/survivorpy)
 [![PyPI Version](https://img.shields.io/pypi/v/survivorpy.svg)](https://pypi.org/project/survivorpy/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/survivorpy.svg)](https://pypi.org/project/survivorpy/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)](https://pypi.org/project/survivorpy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jonnycomes/survivorpy/survivorpy-tests.yml?branch=main)](https://github.com/jonnycomes/survivorpy/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/jonnycomes/survivorpy.svg)](https://github.com/jonnycomes/survivorpy/commits/main)
