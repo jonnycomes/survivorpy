@@ -11,7 +11,7 @@
     "challenge_description": "931bd84a19efdebf2382a31fffa40555c697b2e3406e97435e5b64a01e552f3b",
     "challenge_results": "a86e45c5cdfb9fc591aa44445d2c3655f9f106e5bb830ab704571bd76e86413f",
     "challenge_summary": "9d50578f5d11c00e38dfcd02c46e4da526d83d2c35a345502efd684517b89bfa",
-    "confessionals": "159077cf8507e98a0086179b2075e1163b504feb756dc3024aadbbb83b68b588",
+    "confessionals": "f73110609eb586dc781d8f31df8c654f1860e9af6b8efce177f69c519547d340",
     "episodes": "33dc8edda47ffa66e89136258c08b50515e76fea569316c7987b55e2b5f4735e",
     "journeys": "1e2ba22730f882ffe9b47a113eaa74e39ee76e4bf281542d8468a739aa55a832",
     "jury_votes": "c2f7aa06c3124e82b5256abd06eecb6021b0137b7f8900bbadf91de75f48c47b",
@@ -24,8 +24,8 @@
     "viewers": "614b2e413f66690c2c4004dd799cf28e4ddf4152e6e276bdf656453d74cb3523",
     "vote_history": "ccc7845bc12901b472cb4e97b8d672405495e9654eef8f2b2e2cbf690e8474bf"
   },
-  "timestamp": "2025-05-16T08:36:40.422Z",
+  "timestamp": "2025-05-19T08:38:55.358Z",
   "added": {},
   "deleted": [],
-  "modified": ["boot_mapping", "boot_order", "castaway_details", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "tribe_mapping", "viewers", "vote_history"]
+  "modified": "confessionals"
 }
