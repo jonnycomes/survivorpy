@@ -22,10 +22,10 @@
     "tribe_colours": "3be9a9ef43b62298205bcabecbfdd34c23d33d9813c142acfbfcd96802b84a1f",
     "tribe_mapping": "c3ab4180b54b6caf8a62ecb3a126635de8f4c26d860ff6f36912540ae59dd682",
     "viewers": "c00c6c82e149c4f5f2908040f4894531e6c927419e44d4e71c168677b1b5d277",
-    "vote_history": "2fd3aaa37234466f308b28d7760edf2e9da203bb364dbf718723a731067181e7"
+    "vote_history": "13b6c72e5c96580a4c5e385c862df6be9ed69542d50d2c75dced66ea285722b2"
   },
-  "timestamp": "2025-05-26T08:52:47.805Z",
+  "timestamp": "2025-05-27T08:56:23.577Z",
   "added": {},
   "deleted": [],
-  "modified": "confessionals"
+  "modified": "vote_history"
 }
