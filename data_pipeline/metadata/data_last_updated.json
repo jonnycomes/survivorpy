@@ -4,9 +4,9 @@
     "advantage_movement": "6a037ef28088f4d316251930ca81bc7999ca9672312658b4fc12e2c5fbefe21b",
     "auction_details": "69aaa8b79b16e641fd7c06c933dcca224b77cba89ad5a16e6ddbee76abb5b67e",
     "boot_mapping": "a4d2479bbdc0c029b860cd61b6f6f5cbc121c785997010a84b3bff36d058fd8b",
-    "boot_order": "5a6619fe80b2a616de1beb5490418806e80578bce74c0edf239544e4e1ad4484",
+    "boot_order": "a21cef9985fb9802f5dd97fe91eb804c548626b1a5c7da76dc1daa98925d0442",
     "castaway_details": "111e86a0a4bdccd6a25874ab49b26aed7ec45f509de80d0c29b9c0d9d6c4cd65",
-    "castaway_scores": "c4ff3ca5e8613703d4205a345dd7cb3c782ac5477479d0de1321e6c3cfeb324e",
+    "castaway_scores": "6819f0c0514c531cc588b5370eee659b52be0fb5d2136b27ae387ad07f043756",
     "castaways": "ea73b5b752b43d15710801b6ff372387cd34ee3aff1bdfb4d283d8bccb118ca5",
     "challenge_description": "09c18adc941c6863d2f02e64c2a780aa7577478cd9ad29874889bc0dcfa1325a",
     "challenge_results": "9cee8c75b508bfa57eba3e9d2dc2220963a6c44e71a98a0860da9b80a10bf8d8",
@@ -24,8 +24,8 @@
     "viewers": "c00c6c82e149c4f5f2908040f4894531e6c927419e44d4e71c168677b1b5d277",
     "vote_history": "13b6c72e5c96580a4c5e385c862df6be9ed69542d50d2c75dced66ea285722b2"
   },
-  "timestamp": "2025-06-03T08:37:50.754Z",
+  "timestamp": "2025-06-04T08:36:53.523Z",
   "added": {},
   "deleted": [],
-  "modified": ["boot_order", "castaway_scores", "castaways", "challenge_results", "season_summary"]
+  "modified": ["boot_order", "castaway_scores"]
 }
