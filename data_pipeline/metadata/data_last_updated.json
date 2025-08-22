@@ -12,7 +12,7 @@
     "challenge_results": "84397ed53813ae31f742e6819799054672a1c346c5254b68c25acf9e315946db",
     "challenge_summary": "70ffa004f271dec5219f4740576b2fdb893d965d8752499fb3913e7a999901ad",
     "confessionals": "fcde33870a185e8b659bbac18ee44aec390ae374b18f8b18476e5f541fa6ed63",
-    "episodes": "417141388932de69f1034e055f841c9dda9901258e42ea4d9d0cbe165a119bce",
+    "episodes": "e1d7158be516e638514a16cf0123bda0162e71eb3143fc6510faa8c8f3064751",
     "journeys": "f5d8ba0b6dde46be96a451c33cef0cd804ee7b8f03adec630f683b2265990c27",
     "jury_votes": "80802a819424ad7e35f7550005f69d51384a6b416e3b17988ce3657da19514ed",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
@@ -21,11 +21,11 @@
     "survivor_auction": "d032daea517cd000d530ff8fd6fb05e9fec0d1882694654690810d69a9c2bd52",
     "tribe_colours": "edb8c20fc31b631d1736a32e274d6e6d2577046b741223c42bc09f7e31008fff",
     "tribe_mapping": "851cb6cd87f991a158761fb0ff4e79d266d2437f6b7854afd05e16e0c0930514",
-    "viewers": "44de11e44a0d1ccd68a6b33c34c46562da0056e79d788292e330115711619f9c",
+    "viewers": "eee785fc048d374aa2c20e7f8c5a59dc5dbf36d4ce7b4a4bb3563d667fcaffea",
     "vote_history": "8c21cb27bae958aa1b5ffdd7c3172c9491b30c89da322467d87fc6fa914e9f98"
   },
-  "timestamp": "2025-08-21T08:36:59.781Z",
+  "timestamp": "2025-08-22T08:37:00.543Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_details", "advantage_movement", "boot_mapping", "boot_order", "castaways", "challenge_description", "challenge_results", "confessionals", "episodes", "season_summary", "tribe_mapping", "viewers", "vote_history"]
+  "modified": ["episodes", "viewers"]
 }
