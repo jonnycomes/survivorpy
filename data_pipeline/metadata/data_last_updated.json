@@ -7,7 +7,7 @@
     "boot_order": "20289b7ca6bc631d71075712f8f318e25c33f243600714c9ed5ee85dc2b49da8",
     "castaway_details": "e28e65d0824af99a1ab378c21224d19eaa7726c4222bd37bf0626dca79d20289",
     "castaway_scores": "288623d1b5c55fb1ac1b8e96457a3d75a75dd3ae11f5ec791e804c087ca7eb4d",
-    "castaways": "205b3f3bb927780a63bcd0b3c08ff78cc4f3174525a5c8194b04946435ba353a",
+    "castaways": "0fcc397d36443ff54b240442bc250e714cffbf436f1334e5e5d75252c936d8a4",
     "challenge_description": "0043081805a3d93df8e498de954c407d2123911c570634121a95fe2b65905c41",
     "challenge_results": "84397ed53813ae31f742e6819799054672a1c346c5254b68c25acf9e315946db",
     "challenge_summary": "70ffa004f271dec5219f4740576b2fdb893d965d8752499fb3913e7a999901ad",
@@ -17,15 +17,15 @@
     "jury_votes": "80802a819424ad7e35f7550005f69d51384a6b416e3b17988ce3657da19514ed",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
     "season_palettes": "8afe5a4092e40d9c29249970f83fb0644edd25af638f191021e8a59001d29779",
-    "season_summary": "2b9957b4a0cf8e2d14d4d0d4b892b8065e6322020fd1aada5fe65108d7345fdf",
+    "season_summary": "1c23f24b5bceb918586a51035def309ccd892716ccfae9c1bf9e3ac942f03e45",
     "survivor_auction": "d032daea517cd000d530ff8fd6fb05e9fec0d1882694654690810d69a9c2bd52",
-    "tribe_colours": "edb8c20fc31b631d1736a32e274d6e6d2577046b741223c42bc09f7e31008fff",
+    "tribe_colours": "5b6724e10df4d1dac5bf15a0ae751bc8a0e6ed4f5e057f1789d45104b3ae6235",
     "tribe_mapping": "851cb6cd87f991a158761fb0ff4e79d266d2437f6b7854afd05e16e0c0930514",
     "viewers": "eee785fc048d374aa2c20e7f8c5a59dc5dbf36d4ce7b4a4bb3563d667fcaffea",
     "vote_history": "8c21cb27bae958aa1b5ffdd7c3172c9491b30c89da322467d87fc6fa914e9f98"
   },
-  "timestamp": "2025-08-22T08:37:00.543Z",
+  "timestamp": "2025-08-23T08:33:05.170Z",
   "added": {},
   "deleted": [],
-  "modified": ["episodes", "viewers"]
+  "modified": ["castaways", "season_summary", "tribe_colours"]
 }
