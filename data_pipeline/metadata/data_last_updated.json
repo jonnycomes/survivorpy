@@ -5,8 +5,8 @@
     "auction_details": "7a726ad6b59ec1b42fadbe48f1c674c1539e69a99f40b223be921dd999dbb7b6",
     "boot_mapping": "9da91c28e7a7de0b09e789edcade7f80413a66df104ac135b6ecd490b46b75a0",
     "boot_order": "386e3009d245face05869e607f129d21ebf0c27037bd46a04d472a8710877485",
-    "castaway_details": "e28e65d0824af99a1ab378c21224d19eaa7726c4222bd37bf0626dca79d20289",
-    "castaway_scores": "288623d1b5c55fb1ac1b8e96457a3d75a75dd3ae11f5ec791e804c087ca7eb4d",
+    "castaway_details": "59c16f8d3d75465457da4c77d37ce14b027bd7f4e51bdc3194f76b5e66a1b0ea",
+    "castaway_scores": "a506b78e410136ea38fcddcfc0dfc59743fa3bf0bf68c809ee8d83495cc1496f",
     "castaways": "78dedff841df7b71e2f2acb650d40955e6bdb0f0ac6670253d45e29e36e2dba2",
     "challenge_description": "47f4ed8be2ab341a267657d771f9aee6ca099603046ce6a465c258298b78aa4e",
     "challenge_results": "b50d5aee18f1198748fc54530d8fc787a29c0e4e83b9ef0f338deb702134f5a1",
@@ -24,8 +24,8 @@
     "viewers": "b43fa9d64d62f661d78b7e0f29209c15aad5873d5870e2dc81993df043fec1d9",
     "vote_history": "70b731c8f4f93f01669383c1ee8c81d3106d807dd4890138c3c91c7e23a09180"
   },
-  "timestamp": "2025-09-09T08:37:46.934Z",
+  "timestamp": "2025-09-14T08:33:02.147Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_movement", "auction_details", "boot_mapping", "boot_order", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "jury_votes", "season_summary", "survivor_auction", "tribe_mapping", "viewers", "vote_history"]
+  "modified": ["castaway_details", "castaway_scores"]
 }
