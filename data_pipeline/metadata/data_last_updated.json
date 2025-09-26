@@ -22,10 +22,10 @@
     "tribe_colours": "feef3ee97cf543cac639a6ce3d78e718a6e7f33a4264be6bbb7b01f5021c5cca",
     "tribe_mapping": "cbadd038223823611d7b371dd87e4c5ecba17207f86d67ed0ec3ce7f977eaeb2",
     "viewers": "b43fa9d64d62f661d78b7e0f29209c15aad5873d5870e2dc81993df043fec1d9",
-    "vote_history": "70b731c8f4f93f01669383c1ee8c81d3106d807dd4890138c3c91c7e23a09180"
+    "vote_history": "c390573eeb5122e9990b7dd91ace1a35e429c8b8dfbae9802fac3f6457a2bdee"
   },
-  "timestamp": "2025-09-22T08:40:29.104Z",
+  "timestamp": "2025-09-26T08:38:36.361Z",
   "added": {},
   "deleted": [],
-  "modified": ["auction_details", "season_summary", "survivor_auction"]
+  "modified": "vote_history"
 }
