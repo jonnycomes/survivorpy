@@ -6,15 +6,15 @@
     "boot_mapping": "9da91c28e7a7de0b09e789edcade7f80413a66df104ac135b6ecd490b46b75a0",
     "boot_order": "386e3009d245face05869e607f129d21ebf0c27037bd46a04d472a8710877485",
     "castaway_details": "59c16f8d3d75465457da4c77d37ce14b027bd7f4e51bdc3194f76b5e66a1b0ea",
-    "castaway_scores": "a506b78e410136ea38fcddcfc0dfc59743fa3bf0bf68c809ee8d83495cc1496f",
+    "castaway_scores": "0a0a623ef341e63a5dcdc32f4a013f15e3d9ee27b459bdb53cba10b85f17c74f",
     "castaways": "78dedff841df7b71e2f2acb650d40955e6bdb0f0ac6670253d45e29e36e2dba2",
     "challenge_description": "47f4ed8be2ab341a267657d771f9aee6ca099603046ce6a465c258298b78aa4e",
-    "challenge_results": "b50d5aee18f1198748fc54530d8fc787a29c0e4e83b9ef0f338deb702134f5a1",
-    "challenge_summary": "bc83610391970f98cb7a4c7d8d726560cd283974bc9e03b68acc0678cedac44f",
+    "challenge_results": "55baf5f57f281e24f74deb251924c2f356806ba25f4afd6c96e8fbcf4c370ab6",
+    "challenge_summary": "76a5012fb514c91a1a3351d41107c1729166d64cdc6c2b4a03ccf4900ae02541",
     "confessionals": "bb116cb898b5dfb85a670a1622d120bfe069851c45e494fbd74a5258eda30e99",
     "episodes": "04f7aecac8795b935a1e71ae406854d696865869ae84f5bfa451af27c5493694",
     "journeys": "f5d8ba0b6dde46be96a451c33cef0cd804ee7b8f03adec630f683b2265990c27",
-    "jury_votes": "b881f8de652677ae13438a9d426c7051066e2b7486184a4e889a5f2a54c83451",
+    "jury_votes": "738bc5ab162539ef396d477b48c574280b4de3de58847d9cef2c060d5084d831",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
     "season_palettes": "8afe5a4092e40d9c29249970f83fb0644edd25af638f191021e8a59001d29779",
     "season_summary": "b6b9c7ebc101b065b8864e4ceaf5da744747cec33b1e793e4b0520e0ef2445ca",
@@ -24,8 +24,8 @@
     "viewers": "b43fa9d64d62f661d78b7e0f29209c15aad5873d5870e2dc81993df043fec1d9",
     "vote_history": "c390573eeb5122e9990b7dd91ace1a35e429c8b8dfbae9802fac3f6457a2bdee"
   },
-  "timestamp": "2025-09-26T08:38:36.361Z",
+  "timestamp": "2025-09-29T08:42:30.687Z",
   "added": {},
   "deleted": [],
-  "modified": "vote_history"
+  "modified": ["castaway_scores", "challenge_results", "challenge_summary", "jury_votes"]
 }
