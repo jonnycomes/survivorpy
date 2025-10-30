@@ -22,10 +22,10 @@
     "tribe_colours": "258ce22db6fed852141cfe0908b633a1db3949185689bbc48770a3b36f4895a9",
     "tribe_mapping": "982373ab715b598f0e0b2f010d41c82a9f30ed6bec04b2208f32168f98730e91",
     "viewers": "19f1867a9d83862810764d1a113b7b26ab31ed44c2cc75416a551a933594040e",
-    "vote_history": "531c16a3ffafa9434e60efdc8d5111ca4260a17e22b04709569441c62bd40a01"
+    "vote_history": "462322a8017bf1be4acd0fb0d096c4853b1da412f7704e77377a57977aacaf80"
   },
-  "timestamp": "2025-10-24T08:40:33.815Z",
+  "timestamp": "2025-10-30T08:39:16.237Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_movement", "boot_mapping", "boot_order", "castaways", "challenge_description", "challenge_results", "confessionals", "episodes", "journeys", "tribe_mapping", "viewers", "vote_history"]
+  "modified": "vote_history"
 }
