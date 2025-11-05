@@ -9,11 +9,11 @@
     "castaway_scores": "ecb7b4f86239ddac35e43ff57c8873fb790f671e53c492f6802bb7d9f6b5b0c6",
     "castaways": "ac9634ea414b63a47e34d158bed5c43024af5d097714ec589cd34f35c60b61cb",
     "challenge_description": "aea14ca40b310f6dcb4c9111cfcb894306628b25464bd9840f45942443c06f41",
-    "challenge_results": "6cf4e0c93d9466a20fe48f2877dac2229c5d1112ea5f2414d7f0bdaaea4899ac",
-    "challenge_summary": "87d9910908c5312a237e853c5821053fd6b3da5128c6d70d878d44b7f5a7ef94",
-    "confessionals": "4244a8afaf01d7855924965849a88ba579862a3d6fae47ec797e91ee6235dc5c",
-    "episodes": "59305e6cde82021cd78937dae2b4d83666cc124fde711d3cc417ead8916cc308",
-    "journeys": "d88ae43ba2fbd461e5430b7b3cef76240157de007e5fa290e2a8f0e3ffbf6876",
+    "challenge_results": "1da070ef40b082668e267b825f759648644fae106a6839aa7d3daff777ecb2ef",
+    "challenge_summary": "72122811b9834025fa03fc8e59ca451e8483cfef68aabb1a64af6990ece13b48",
+    "confessionals": "dd7f99addd3ec5b3565c2b4abf8fc73336ce1548f47b00d415845414a1b2310b",
+    "episodes": "740f76ebe4ec1d5d8201c83aa14c8567c0e6684484851d29d58ce3ce42d921c0",
+    "journeys": "41d6cd0a069716b93c35ba90c2a34e9798bb2a81ba9edafabe457fc40efff0ca",
     "jury_votes": "738bc5ab162539ef396d477b48c574280b4de3de58847d9cef2c060d5084d831",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
     "season_palettes": "8afe5a4092e40d9c29249970f83fb0644edd25af638f191021e8a59001d29779",
@@ -21,11 +21,11 @@
     "survivor_auction": "13ed20c5a05582631aa3cc45827fefad7f5bad2bac09155f868aa5c0698bcc1c",
     "tribe_colours": "6b8df2a504dd9147bf7656238c29e8b9da13f9f7a29973a465000deab6ae629e",
     "tribe_mapping": "2e25d57b85f70c9c4c25b220c7d1b499f702b429b3bf2f2681cf00147dc5cce8",
-    "viewers": "f781abc7adfdf9b57076027ef70f31321abe1a0b1289db0c725c1d7a922f987b",
-    "vote_history": "d50f38db9a28aaf3053b81ca1598394542b04b4319099b12389dc05504157e4c"
+    "viewers": "5b3a854472f9f1bd951f39a01eb57b260fd281bbadfdc996459748aa54eb6796",
+    "vote_history": "59e33e57fa38c226c5829a49871c21060931a712abcc56a8ecc2bc3dfde6758f"
   },
-  "timestamp": "2025-11-04T08:40:48.424Z",
+  "timestamp": "2025-11-05T08:41:32.347Z",
   "added": {},
   "deleted": [],
-  "modified": ["castaways", "confessionals"]
+  "modified": ["challenge_results", "challenge_summary", "confessionals", "episodes", "journeys", "viewers", "vote_history"]
 }
