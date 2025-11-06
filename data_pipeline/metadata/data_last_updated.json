@@ -22,10 +22,10 @@
     "tribe_colours": "6b8df2a504dd9147bf7656238c29e8b9da13f9f7a29973a465000deab6ae629e",
     "tribe_mapping": "2e25d57b85f70c9c4c25b220c7d1b499f702b429b3bf2f2681cf00147dc5cce8",
     "viewers": "5b3a854472f9f1bd951f39a01eb57b260fd281bbadfdc996459748aa54eb6796",
-    "vote_history": "59e33e57fa38c226c5829a49871c21060931a712abcc56a8ecc2bc3dfde6758f"
+    "vote_history": "857c3113465bb24056a7266e27d65b4f2c697cff9dd5a546577ce8e6d73bd07a"
   },
-  "timestamp": "2025-11-05T08:41:32.347Z",
+  "timestamp": "2025-11-06T08:39:53.545Z",
   "added": {},
   "deleted": [],
-  "modified": ["challenge_results", "challenge_summary", "confessionals", "episodes", "journeys", "viewers", "vote_history"]
+  "modified": "vote_history"
 }
