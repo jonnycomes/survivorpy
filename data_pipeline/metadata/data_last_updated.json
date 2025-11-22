@@ -1,18 +1,18 @@
 {
   "hashes": {
-    "advantage_details": "07784de1262e6bdf0bf4e3ace42df73bc7680d4171be35e0458b6780da30ea3a",
-    "advantage_movement": "d0e106d7565679f1a8e8249974c18899f2b123f6d9a98793dd50630f5ddcba22",
+    "advantage_details": "b389c1bab07b157643eaf3350fdd76fdc33bba405b400def5c487fb565450a2c",
+    "advantage_movement": "682969191013cfe0da5ab1c01b2d2ff0b6e28eb21babc09dcdb62b13ec289f79",
     "auction_details": "94a98ba0add6e90e7d93c5cfb2a83b4bc184dd9f39b4f2c7794e811cbb327174",
-    "boot_mapping": "c3071f996dbed309a6b8106ab776357d9c4e7c111b2d2cd29df8d2011d40717f",
-    "boot_order": "144bf7b791e9a4ea8d4cb0f5c56a04a93b634a3f3e0a49810f77c0ac0f2d4fda",
+    "boot_mapping": "4235e8a7d3c261e69b422cba8c25477239f64a3c74ba063c45cd7ee2f6065043",
+    "boot_order": "4c96ab874a5511e1585d4be7b4969cfc2e961ccc1cb528094d12a1b885c86c35",
     "castaway_details": "d32893a17c4d23304a3d830ed8fd5be0a12ea2faf8ef5eb5c3513bea6921e977",
-    "castaway_scores": "ecb7b4f86239ddac35e43ff57c8873fb790f671e53c492f6802bb7d9f6b5b0c6",
-    "castaways": "0299aca0af9a6fe94c997d3f923e5b392cba857f7c681eda743228ea91fc8c91",
-    "challenge_description": "e762472a30b1bffe8c13f261ab6da08ce0f4196d6005716237aa848826e2b37c",
-    "challenge_results": "a44aa4b7181c794be14fdcb151473a4438c3ae95a33de5ec7cf32167e25d4a22",
-    "challenge_summary": "847cc9619cec50c91d04c90cca9403e61198375ef837a98a21d005f99b2595b8",
-    "confessionals": "2bf32acc0d920bd01b625ecc802e4a9ac33ad7d5b864bfec3ce42304194c1e64",
-    "episodes": "8f4d0208a901a664d61159807d8a8399deb426291794d4a3c90ae53d6b5e603a",
+    "castaway_scores": "8b8b9a4dc2fe92c8c39b87f74d34cad6737c8272db8cdc7788bec9af478f774d",
+    "castaways": "a358d7efa0e13b0c1902d6e5b2c0074de24c40951ac9ea15c51406d6d80b3ebc",
+    "challenge_description": "11ab88082cf97ab3637f863d5c15e409eaf25f50cce50e1bffc9d3295d084333",
+    "challenge_results": "e7a31632ff80d5f95eccebfca2c50b0ef7a487ad5507d547b29c0da11d98e118",
+    "challenge_summary": "029487c8878b86131a626ffc530da5a844a6f2e3cadc14317bb918730b826b15",
+    "confessionals": "b894e91bce6dd1b42ab66f7254216c94f2efa690a66c119743b143d24b6c59de",
+    "episodes": "67cac4879365e5afc2e704917337215c571566b8c0870fe040c27b87233a451a",
     "journeys": "cae72f7d64e3d129e0b4d138253b83352c26ae9fd18ec48b49c8fb853736996b",
     "jury_votes": "738bc5ab162539ef396d477b48c574280b4de3de58847d9cef2c060d5084d831",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
@@ -20,12 +20,12 @@
     "season_summary": "9c920d3e1b34c55996f79f4c26996a73451c72e2edebb1d989d6ea5f9f84eee5",
     "survivor_auction": "13ed20c5a05582631aa3cc45827fefad7f5bad2bac09155f868aa5c0698bcc1c",
     "tribe_colours": "b08663bce4322a287f9c31d3244976b821343b8a196aff541e6c0d88bb67f73e",
-    "tribe_mapping": "342e4b8bad05e5231763e2658dbf22523cc6923728ffccb18eff19557ac53c60",
-    "viewers": "9951946ff76f32a2cbdf7c1ca8a414edf2a66743f17ec3f5c589fa9ae326c42d",
-    "vote_history": "8cef06840153b16747af8c43e73dabaf380d597e9acf910ec058c904a982b863"
+    "tribe_mapping": "6a3786deeb20ad4bb7bb7d2724668ff23b1495f290116e9fca7806b4f2f5e132",
+    "viewers": "ee298f7dfb9116ff28f232d32838f283fc84f7e147272dda1c3a7355ea07dcd1",
+    "vote_history": "02ff6fb181d2ebc97d750e43525e3dfafa67a44de4eedcbadae18e4e09cf93f8"
   },
-  "timestamp": "2025-11-18T08:39:55.746Z",
+  "timestamp": "2025-11-22T08:36:40.965Z",
   "added": {},
   "deleted": [],
-  "modified": ["castaway_details", "confessionals"]
+  "modified": ["advantage_details", "advantage_movement", "boot_mapping", "boot_order", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "tribe_mapping", "viewers", "vote_history"]
 }
