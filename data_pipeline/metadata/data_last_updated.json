@@ -5,7 +5,7 @@
     "auction_details": "94a98ba0add6e90e7d93c5cfb2a83b4bc184dd9f39b4f2c7794e811cbb327174",
     "boot_mapping": "cc84505b29f80fd2376adec66d8a8083b9e5636322ae09cb5da854536ce8c963",
     "boot_order": "8dfd97047fd11ed26afb472500e4cfdd71133f4ed9a2e6b17493800b3acb0383",
-    "castaway_details": "c1af9f7be79c7cabb8411ca37af4624320ac32fd17cb58e10dd6be23050fcce7",
+    "castaway_details": "265755a392a4651ae06e74cd8691da02bd97c96be61ce965b7c20db0dc81e712",
     "castaway_scores": "b22aad15dcb87960f5be397345d610826b981f9f5e860fd16e0bc0169385be8c",
     "castaways": "0801931a753e763134bd8d99ab87d4db1e424adcd71d25a539de73c7d42e58ab",
     "challenge_description": "c1084bb6b0e4cdc88e088f2cb790bcb52809516d728b75116c9e54852a824d28",
@@ -24,8 +24,8 @@
     "viewers": "8464964f5744fb2c0774346facb67c97e103a0d33751d063289e881917cf1079",
     "vote_history": "86f29c8d71621357819fddab1334dd849564f3d01b15c54838504a76288d92a3"
   },
-  "timestamp": "2025-12-24T08:43:39.128Z",
+  "timestamp": "2026-01-10T08:17:23.437Z",
   "added": {},
   "deleted": [],
-  "modified": ["castaway_scores", "challenge_description", "challenge_results", "challenge_summary"]
+  "modified": "castaway_details"
 }
