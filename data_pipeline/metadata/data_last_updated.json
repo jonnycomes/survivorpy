@@ -2,7 +2,7 @@
   "hashes": {
     "advantage_details": "f83fc4721b8f8fc67776ff3577b5fa110fb010e6c77874aec613e00fae84fac1",
     "advantage_movement": "3a564ecddb4f80a741debc019eaabcde3a7b0acf742a3dd5bff5df153aee1258",
-    "auction_details": "94a98ba0add6e90e7d93c5cfb2a83b4bc184dd9f39b4f2c7794e811cbb327174",
+    "auction_details": "cb2af47b3d08483db39c56078a2f496e78abf56dcaa8e7d5deb13c55f8e6fe46",
     "boot_mapping": "cc84505b29f80fd2376adec66d8a8083b9e5636322ae09cb5da854536ce8c963",
     "boot_order": "8dfd97047fd11ed26afb472500e4cfdd71133f4ed9a2e6b17493800b3acb0383",
     "castaway_details": "265755a392a4651ae06e74cd8691da02bd97c96be61ce965b7c20db0dc81e712",
@@ -17,15 +17,15 @@
     "jury_votes": "f25431c47ec5a8605ce6b7014d4b805e132836a7c571c814ecb3f8e7cf0a875c",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
     "season_palettes": "9c2d5d01b43dbe0e1074322588541acb828cf0c30fa216ce5d6e472df8d3661e",
-    "season_summary": "30ae09cb9ae8fd12058e3f6217a084482d3d0f415e01db7fa53d1918132dc484",
+    "season_summary": "34f911340cf407a07a269b7eb1e6f451992cdff6656264930e4c00d3206bcfd1",
     "survivor_auction": "13ed20c5a05582631aa3cc45827fefad7f5bad2bac09155f868aa5c0698bcc1c",
     "tribe_colours": "b08663bce4322a287f9c31d3244976b821343b8a196aff541e6c0d88bb67f73e",
     "tribe_mapping": "156d7f997ac271fb6d8c1e64af215012a0c5544780cd39ea758ac835043a468e",
     "viewers": "8464964f5744fb2c0774346facb67c97e103a0d33751d063289e881917cf1079",
     "vote_history": "86f29c8d71621357819fddab1334dd849564f3d01b15c54838504a76288d92a3"
   },
-  "timestamp": "2026-01-10T08:17:23.437Z",
+  "timestamp": "2026-02-19T08:29:36.702Z",
   "added": {},
   "deleted": [],
-  "modified": "castaway_details"
+  "modified": ["auction_details", "season_summary"]
 }
