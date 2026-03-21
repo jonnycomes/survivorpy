@@ -11,7 +11,7 @@
     "challenge_description": "25fefcbdfeb71230037602def3668d539e767ed387e362a792edfe056281c89f",
     "challenge_results": "f192eb93604ac37885a4cca8d1d62705f8d5ee1a9e820645f640de9e24a0b9e8",
     "challenge_summary": "7a2e75b717c93d1163aafa0a55d0dded78a3a15694ef50362d67a1f50c31528f",
-    "confessionals": "4289d04725036850841373177641ee7978494278aad730f2898803672ba0acf7",
+    "confessionals": "63bc3fc0f8e459144625ee17faec32ef1c7d6e59247feba5eb205cf150bd23b3",
     "episodes": "2b7917d044fd3d387c37c22b5e41d1614e463ba4fc41e724ea0f86530ab88803",
     "journeys": "6748f8062437bda05bd4ca4f54d215f7ebb4a6e36949d8b43438a22445e2ed8b",
     "jury_votes": "f25431c47ec5a8605ce6b7014d4b805e132836a7c571c814ecb3f8e7cf0a875c",
@@ -24,8 +24,8 @@
     "viewers": "2c9da14ba005abf7a4c606f6ab836d633f378d7cfee40215e9bc64aaa27dd902",
     "vote_history": "4ce620549c794f974c948cc1133b34a8a65bba1b6c5d49c28e24383ee1a6ed48"
   },
-  "timestamp": "2026-03-20T08:29:30.144Z",
+  "timestamp": "2026-03-21T08:23:21.270Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_details", "advantage_movement", "boot_mapping", "boot_order", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "tribe_mapping", "viewers", "vote_history"]
+  "modified": "confessionals"
 }
