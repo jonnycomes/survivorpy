@@ -4,9 +4,9 @@
     "advantage_movement": "e823f27f2edba7cc8ad1b7edaf12c593b053da9dad3aa596aecc0b96a93f0567",
     "auction_details": "cb2af47b3d08483db39c56078a2f496e78abf56dcaa8e7d5deb13c55f8e6fe46",
     "boot_mapping": "86e19c725dae8e70b20b3225022c08d28363231597563d8760c42923d2f01581",
-    "boot_order": "911b00907a18da917e0847c15dba2e5b927cb0e522a712f468b550b0cc70042f",
+    "boot_order": "ca26eeb9d5acd6729384d2d75220f3660d03d3b3c514f0a367e23ea17fb15b4d",
     "castaway_details": "95c072b8f61ebfa17df0f2221effdfe061c57bbf9c8bec7d28a674e2205177b5",
-    "castaway_scores": "b22aad15dcb87960f5be397345d610826b981f9f5e860fd16e0bc0169385be8c",
+    "castaway_scores": "471014188e0eb8ad56de728c1207a5cef047d72ca5b55f9da87c35e065bfb489",
     "castaways": "66d54b05ad2afb9726c3d17d6cd98943d0d0706ee9d89a428560357ba5165661",
     "challenge_description": "11410f0557aefd6df95c8ae7320a6a961c3a16695a13d0ea2578f923a3419081",
     "challenge_results": "b2395c0e54e3fbcfa470d919de3defe4b38033d0993184c6f48437078ccda490",
@@ -17,15 +17,15 @@
     "jury_votes": "f25431c47ec5a8605ce6b7014d4b805e132836a7c571c814ecb3f8e7cf0a875c",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
     "season_palettes": "9c2d5d01b43dbe0e1074322588541acb828cf0c30fa216ce5d6e472df8d3661e",
-    "season_summary": "2aece24b49345150836e5bf1f58670ebd40dd06ab0f707d14c0d1cd32c712a9d",
+    "season_summary": "a319f3d85b6c21c0a25ec0bf1b4f5fae9fcf83b9609378bd9b447e8ffecc1ac0",
     "survivor_auction": "13ed20c5a05582631aa3cc45827fefad7f5bad2bac09155f868aa5c0698bcc1c",
     "tribe_colours": "b63b725d5bf9cc8b533852848833348590b4ba0864e277fcf0684d05a7db0c40",
     "tribe_mapping": "3905f470cf10c57755a1027f756552add1489efc538c495e22c7c99dda896e47",
     "viewers": "451af82e4b37b1707f597490b2e40e154f979f2a1f28d5c9e23102d097d9e5ee",
     "vote_history": "57044005d6a16072a38894f99320869bbe73de41c93153fd2f2c427621c7ead8"
   },
-  "timestamp": "2026-04-04T08:29:14.895Z",
+  "timestamp": "2026-04-08T08:44:52.026Z",
   "added": {},
   "deleted": [],
-  "modified": "boot_mapping"
+  "modified": ["boot_order", "castaway_scores", "season_summary"]
 }
