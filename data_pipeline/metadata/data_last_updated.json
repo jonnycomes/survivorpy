@@ -6,11 +6,11 @@
     "boot_mapping": "1ccc5036fb02e19dcb4178433c78e39d0299704ce712848cd46998b2b0a2c1f5",
     "boot_order": "eb82cea9d94d852743f50384efaf12d7f6ce5ba93867ad293a9b3635e52b2e5c",
     "castaway_details": "95c072b8f61ebfa17df0f2221effdfe061c57bbf9c8bec7d28a674e2205177b5",
-    "castaway_scores": "911d78100d252380163778c95ab779c5e19819310ce0fcf6ae9ce332fd51819e",
+    "castaway_scores": "3b518989a4546b837ccfee7578376124e15ea1301761ac58b7e5c6d242701d98",
     "castaways": "043b4d6f184e971415b00c3d15df2d2722387d417b979571814492fba6b6ad1a",
     "challenge_description": "a6f405e6cc82ea74dde4eb04e2a8c9b07a1e675b20eebbff67758616c598ac82",
-    "challenge_results": "8fd2e9c0d6753a889ab24b58edc31f50c41d983c5308ff2f485a32cedc86b00c",
-    "challenge_summary": "e7e4dc7acce2b3f7ac5f856637dbe738c38b12dc40bc9bb37d9fa64b4bd639eb",
+    "challenge_results": "aefb4d23b212cbd5b7c0f3e62687a28da857e3aa198e5fa98df1ff29ad22bb73",
+    "challenge_summary": "b53c5b65c30c21f9e9c519462d21eebfc9791b0ad0e12177676173c6575dfb7e",
     "confessionals": "9c65ff3dfc7e1e17779a0e1ed3056ae2752603e9ccee946e10cf6b85db153b03",
     "episodes": "bf3e7c59136b6953c15cb823af51ad8d3bbd4ab432facfa81c0f478a8cda9531",
     "journeys": "6d11d427c6f4e1cb3a1d60bb970c69937a9405704497c49b17448dc5acb52478",
@@ -19,13 +19,13 @@
     "season_palettes": "9c2d5d01b43dbe0e1074322588541acb828cf0c30fa216ce5d6e472df8d3661e",
     "season_summary": "540f6b52fcf8c3f85f85933e0bf0afc54a23f7b016e970ee8fa1b8fa79711fa9",
     "survivor_auction": "13ed20c5a05582631aa3cc45827fefad7f5bad2bac09155f868aa5c0698bcc1c",
-    "tribe_colours": "b63b725d5bf9cc8b533852848833348590b4ba0864e277fcf0684d05a7db0c40",
+    "tribe_colours": "a733cb5fbd2904249989c3999ed32fb18ee4a6bb5cd7aab8547711856abac401",
     "tribe_mapping": "1cdbfc815509a795f846f6b3a440c87d20edf2760896e614df65a9add20ec8f7",
     "viewers": "15757cac82d4d495c901a704e472dda3c90aa6927be358b9f9606357b3056024",
     "vote_history": "df32c8b77a7e9e24e558cafed077029d5206933a477a0730578beb5ab0b2854b"
   },
-  "timestamp": "2026-04-10T08:51:03.296Z",
+  "timestamp": "2026-04-11T08:30:03.370Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_details", "advantage_movement", "boot_mapping", "boot_order", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "journeys", "season_summary", "tribe_mapping", "viewers", "vote_history"]
+  "modified": ["castaway_scores", "challenge_results", "challenge_summary", "tribe_colours"]
 }
