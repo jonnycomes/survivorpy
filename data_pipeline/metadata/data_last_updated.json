@@ -1,14 +1,14 @@
 {
   "hashes": {
     "advantage_details": "e8bc64b0662c9cbb16e145c18050d2d2ba1bb76e0aacce9c27ff5b7140339965",
-    "advantage_movement": "3532f4d4141dec2042852e358fb9b8e8d6fc19e5dd59b8b046126efe184c2273",
+    "advantage_movement": "3190e1df548a9b532d263651774a5edd98f1bf542205686706c7e8fae0fbfe05",
     "auction_details": "0c5e95c71297857f01228915089ceb6e05ffeaaffdb3fa38f3ac7b6dd1f5f8b8",
     "boot_mapping": "1ba0f0edb9739525bce61f605e88db93dd054b1f17f61cec906e69ca2c0c8ace",
     "boot_order": "5e73e0851c3fb4573390b55f27ff482441965bed05dfdf15b6a2998e7affda12",
     "castaway_details": "95c072b8f61ebfa17df0f2221effdfe061c57bbf9c8bec7d28a674e2205177b5",
     "castaway_scores": "e2ad043d80723d346e51e78d68408fdb4564b42ada71123f0e8e03c8509102b3",
     "castaways": "c2e497898d8d096bd1fa26ffca4d4259f8212ff220173321452186fdc21c2311",
-    "challenge_description": "9dcd4dc35f9755d96b484e13045ba68a1b90f14755051220b189e5798f4d6720",
+    "challenge_description": "e256a1fab5ee3abae7370d4e9bafa6887bbcd51540c5b1993ee6acfe352905b5",
     "challenge_results": "2e4e4e83f05a92838180fb5e8b6d5184f25649965616c445b264e05f163f4183",
     "challenge_summary": "a8edec011ad488b38a6141dcd463d8545af19abb9193d9bed47ba651588f7ac0",
     "confessionals": "b3e4afb19ed28abe369bf4d7ad5b4e1e694a42b56350fcd7f502b4aa0d097f5d",
@@ -24,8 +24,8 @@
     "viewers": "e6876d624b830742f0aa688d643cb417f21f9ed4c3788b5b18e0f9880a017802",
     "vote_history": "214c45663cb72fe6fb28a2a6685cdbd32fe3e9fada339564566a66ce41b1862a"
   },
-  "timestamp": "2026-05-15T09:14:51.161Z",
+  "timestamp": "2026-05-19T09:21:03.334Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_movement", "boot_mapping", "boot_order", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "tribe_mapping", "viewers", "vote_history"]
+  "modified": ["advantage_movement", "challenge_description"]
 }
