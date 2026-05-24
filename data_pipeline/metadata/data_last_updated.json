@@ -6,12 +6,12 @@
     "boot_mapping": "e948f2c27c2700906d7a2ef72c2075a3bb564bb1c118dc29acf5671ebc4f0f33",
     "boot_order": "79f4cf2114f0e72c152d5611257a366808e8234f5d31c7ecaa0fffe579261f36",
     "castaway_details": "9317ca19e1dc96e901961c49219378623a03e730b3416cd92d07a53fecf269f1",
-    "castaway_scores": "48cc8acfa82b253495a324a92d7953739634c338610720afa5980d6f8e3ac466",
+    "castaway_scores": "5dd9cdd50dc7dee11274e700d066b35250795b63f46e0369d98b839527e50ffb",
     "castaways": "5ad0b57c7ce38d91ef20ff3fe536427c66050429fc8839b371393599c05a061c",
     "challenge_description": "863440ac4a408dfa44c931a4f93078337c829ce81b6d9e4300eb1a0976b2fc0b",
     "challenge_results": "61c0d46eae25e349af4e0642e612e0600c1f8ea3bf2a82f2112a25611fa4b8a3",
     "challenge_summary": "2cb31bfe023144188bd03287cfbd4148ab708345f268dca0f27e29b281f36eb8",
-    "confessionals": "4e5f2491b4be8f1c0f0af5c8a9a0384b10980cb501aaa036fbdd45e11760a8ca",
+    "confessionals": "2991f2e17f7ca590ec0b7664092073e706b35d64a7655ededefdd03085b7bbb2",
     "episodes": "0d4aa23c9aacab221eca574e73d39cd39a4ed9deb8edbf23df4c491651401df2",
     "journeys": "327285aa06d66aa410b7f8c2a1b5b5616bf4a8af1cb60003ed7965d9b6997838",
     "jury_votes": "3dda185596570561f8f32abfd42e3240e7aa74d2b976de19f39927410dafc3f5",
@@ -24,8 +24,8 @@
     "viewers": "de64581cde61c8c62dc0609f7904e80fb6bea16f62cdaae867ecf9c58e520a4b",
     "vote_history": "77b78f6628c988d63c7fdd2b4fc8b75c413b8d9e97cb9e0131801c35fca44dff"
   },
-  "timestamp": "2026-05-23T08:49:35.089Z",
+  "timestamp": "2026-05-24T08:59:32.747Z",
   "added": {},
   "deleted": [],
-  "modified": ["advantage_movement", "boot_mapping", "boot_order", "castaway_details", "castaway_scores", "castaways", "challenge_description", "challenge_results", "challenge_summary", "confessionals", "episodes", "jury_votes", "season_summary", "tribe_mapping", "viewers", "vote_history"]
+  "modified": ["castaway_scores", "confessionals"]
 }
