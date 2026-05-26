@@ -1,5 +1,6 @@
 {
   "hashes": {
+    "advantage_timeline": "1944c6fe16e1ab54c80d9a7f55e8241aeddf90527b9d127742256e7051467f53",
     "advantage_details": "e8bc64b0662c9cbb16e145c18050d2d2ba1bb76e0aacce9c27ff5b7140339965",
     "advantage_movement": "3541362e4d07343455949b8c32e29674f2e1c2c54de279536a187193c796341a",
     "auction_details": "0c5e95c71297857f01228915089ceb6e05ffeaaffdb3fa38f3ac7b6dd1f5f8b8",
@@ -11,8 +12,8 @@
     "challenge_description": "863440ac4a408dfa44c931a4f93078337c829ce81b6d9e4300eb1a0976b2fc0b",
     "challenge_results": "61c0d46eae25e349af4e0642e612e0600c1f8ea3bf2a82f2112a25611fa4b8a3",
     "challenge_summary": "2cb31bfe023144188bd03287cfbd4148ab708345f268dca0f27e29b281f36eb8",
-    "confessionals": "2991f2e17f7ca590ec0b7664092073e706b35d64a7655ededefdd03085b7bbb2",
-    "episodes": "0d4aa23c9aacab221eca574e73d39cd39a4ed9deb8edbf23df4c491651401df2",
+    "confessionals": "bd8d8ffb7f03a51647c3c68710a9548efb8c70e1d626264117e8f0e4bba67aa2",
+    "episodes": "b7401564ad757edab6c26bcfee6b8d25d5bcf23766439f47f48fbb2ce5c9fd11",
     "journeys": "327285aa06d66aa410b7f8c2a1b5b5616bf4a8af1cb60003ed7965d9b6997838",
     "jury_votes": "3dda185596570561f8f32abfd42e3240e7aa74d2b976de19f39927410dafc3f5",
     "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
@@ -21,11 +22,11 @@
     "survivor_auction": "77ec40ba8060360179be0bbd0c4f05111aebd5e89f22ad50150cab5ffc8e4d45",
     "tribe_colours": "a733cb5fbd2904249989c3999ed32fb18ee4a6bb5cd7aab8547711856abac401",
     "tribe_mapping": "548c8dea77a8ea0a051616ea2774a24508093c50098374e3c012d1dabde669f4",
-    "viewers": "de64581cde61c8c62dc0609f7904e80fb6bea16f62cdaae867ecf9c58e520a4b",
+    "viewers": "c88367bb3e9bd336e25804aa43b0f2244f90cb1e35e18d79f75af270c44b88d7",
     "vote_history": "77b78f6628c988d63c7fdd2b4fc8b75c413b8d9e97cb9e0131801c35fca44dff"
   },
-  "timestamp": "2026-05-24T08:59:32.747Z",
-  "added": {},
+  "timestamp": "2026-05-26T09:21:59.308Z",
+  "added": "advantage_timeline",
   "deleted": [],
-  "modified": ["castaway_scores", "confessionals"]
+  "modified": ["confessionals", "episodes", "viewers"]
 }
