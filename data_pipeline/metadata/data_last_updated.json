@@ -16,17 +16,14 @@
     "episodes": "b7401564ad757edab6c26bcfee6b8d25d5bcf23766439f47f48fbb2ce5c9fd11",
     "journeys": "327285aa06d66aa410b7f8c2a1b5b5616bf4a8af1cb60003ed7965d9b6997838",
     "jury_votes": "3dda185596570561f8f32abfd42e3240e7aa74d2b976de19f39927410dafc3f5",
-    "screen_time": "546dda7cf8faddc01b5705d830e3a2fa3f1260558cdfb28121e5094be1f74897",
-    "season_palettes": "9c2d5d01b43dbe0e1074322588541acb828cf0c30fa216ce5d6e472df8d3661e",
     "season_summary": "158119445d34d229e87b4088fd880846ffc4c6c8ffc1f2cebcb0aaa6788eab20",
     "survivor_auction": "77ec40ba8060360179be0bbd0c4f05111aebd5e89f22ad50150cab5ffc8e4d45",
     "tribe_colours": "a733cb5fbd2904249989c3999ed32fb18ee4a6bb5cd7aab8547711856abac401",
     "tribe_mapping": "548c8dea77a8ea0a051616ea2774a24508093c50098374e3c012d1dabde669f4",
-    "viewers": "c88367bb3e9bd336e25804aa43b0f2244f90cb1e35e18d79f75af270c44b88d7",
     "vote_history": "77b78f6628c988d63c7fdd2b4fc8b75c413b8d9e97cb9e0131801c35fca44dff"
   },
-  "timestamp": "2026-06-08T09:46:10.515Z",
+  "timestamp": "2026-06-12T09:34:04.599Z",
   "added": {},
-  "deleted": [],
-  "modified": "challenge_description"
+  "deleted": ["screen_time", "season_palettes", "viewers"],
+  "modified": {}
 }
