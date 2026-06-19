@@ -1,5 +1,6 @@
 {
   "hashes": {
+    "viewers": "f1e28447289df90a1fdccd7f2d83f8c7d23b3d3182754504b10d9b683fdc63cf",
     "advantage_details": "e8bc64b0662c9cbb16e145c18050d2d2ba1bb76e0aacce9c27ff5b7140339965",
     "advantage_movement": "3541362e4d07343455949b8c32e29674f2e1c2c54de279536a187193c796341a",
     "advantage_timeline": "1944c6fe16e1ab54c80d9a7f55e8241aeddf90527b9d127742256e7051467f53",
@@ -12,8 +13,8 @@
     "challenge_description": "6f014ededc772d8e0e6285eab6f9fb011808db59dacb0a111cef795e31f0faf6",
     "challenge_results": "61c0d46eae25e349af4e0642e612e0600c1f8ea3bf2a82f2112a25611fa4b8a3",
     "challenge_summary": "2cb31bfe023144188bd03287cfbd4148ab708345f268dca0f27e29b281f36eb8",
-    "confessionals": "bd8d8ffb7f03a51647c3c68710a9548efb8c70e1d626264117e8f0e4bba67aa2",
-    "episodes": "b7401564ad757edab6c26bcfee6b8d25d5bcf23766439f47f48fbb2ce5c9fd11",
+    "confessionals": "1f1f1b28e7aac8f0ff023a013f99dd71463e096c8056ca0a23e41b48c1455803",
+    "episodes": "ce0979d4d83ca62c813bc568ed8b8e743b5f0b90f0dcdbdc157f93a8ed89dad4",
     "journeys": "327285aa06d66aa410b7f8c2a1b5b5616bf4a8af1cb60003ed7965d9b6997838",
     "jury_votes": "3dda185596570561f8f32abfd42e3240e7aa74d2b976de19f39927410dafc3f5",
     "season_summary": "158119445d34d229e87b4088fd880846ffc4c6c8ffc1f2cebcb0aaa6788eab20",
@@ -22,8 +23,8 @@
     "tribe_mapping": "548c8dea77a8ea0a051616ea2774a24508093c50098374e3c012d1dabde669f4",
     "vote_history": "77b78f6628c988d63c7fdd2b4fc8b75c413b8d9e97cb9e0131801c35fca44dff"
   },
-  "timestamp": "2026-06-12T09:34:04.599Z",
-  "added": {},
-  "deleted": ["screen_time", "season_palettes", "viewers"],
-  "modified": {}
+  "timestamp": "2026-06-19T09:42:18.232Z",
+  "added": "viewers",
+  "deleted": [],
+  "modified": ["confessionals", "episodes"]
 }
